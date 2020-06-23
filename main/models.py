@@ -6,9 +6,8 @@ class Entry(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     jcode = db.Column(db.String)
     temp = db.Column(db.Float)
-    UTC = datetime.now(timezone.utc)
-    JST = timezone(timedelta(hours=+9))
-    date = db.Column(db.DateTime, default= UTC.astimezone(JST))
+    JST = datetime.now(timezone(timedelta(hours=9)))
+    date = db.Column(db.DateTime, default= JST)
 
     def __repr__(self):
         return "<Entry id={} jcode={!r} temp={!r} date={}>".format(self.id, self.jcode, self.temp, self.date)
