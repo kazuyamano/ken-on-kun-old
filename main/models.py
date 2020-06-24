@@ -14,6 +14,3 @@ class Entry(db.Model):
 
 def init():
     db.create_all()
-
-#JST = timezone(timedelta(hours=+9), 'JST')
-#date = db.Column(db.DateTime, default=datetime.now(JST)) 
