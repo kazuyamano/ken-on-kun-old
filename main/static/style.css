@@ -1,0 +1,178 @@
+body {
+  width: 560px;
+  margin: 0 auto;
+  background: white;
+  padding: 10px;
+}
+.h {
+  width: 460px;
+  margin: 40px auto;
+  text-align: center;
+}
+.qa {
+  width: 400px;
+  font-size: 18px;
+  margin: 10px auto;
+}
+.qa p {
+  margin: 20px 0px 10px 0px;
+  font-size: 24px;
+}
+.qa input {
+  width: 160px;
+  padding: 0 15px;
+  font-size: 30px;
+  height: 1.8em;
+  background-color: #e9e9e9;
+  border-color: gray;
+  border-radius: 8px;
+  border-style: solid;
+}
+.submit {
+  width: 560px;
+  text-align: center;
+}
+.submit input {
+  align-content: center;
+  width: 300px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 0 20px;
+  font-size: 30px;
+  height: 2.0em;
+  color: white;
+  background-color: gray;
+  border-color: gray;
+  border-radius: 40px;
+  border-style: double;
+}
+.logs {
+  margin: 0px auto;
+  width: 460px;
+}
+.logs p {
+  font-size: 24px;
+}
+.logs table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 20px;
+  table-layout: auto; /* もしくはfixed */
+}
+.logs thead {
+  color: white;
+  background: #585858;
+  border-bottom: 4px solid black;
+  font-size: 16px;
+  text-align: center;
+  line-height: 2em;
+}
+.logs tbody tr:nth-child(odd) {
+  background: #e9e9e9;
+}
+.logs tbody tr:nth-child(even) {
+  background: #ffffff;
+}
+.logs tbody {
+  text-align: right;
+  vertical-align: middle;
+  line-height: 2em;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+.logs td {
+  padding: 0em 1em; /* 1emは文字の高さ1つ分。２つ指定の場合は上下値 左右値 */
+}
+
+
+@media (min-width: 560px) {
+  body {
+    width: 560px;
+    margin: 0 auto;
+    background: white;
+    padding: 10px;
+  }
+  .h {
+    width: 460px;
+    margin: 40px auto;
+    text-align: center;
+  }
+  .qa {
+    width: 400px;
+    font-size: 18px;
+    margin: 10px auto;
+  }
+  .qa p {
+    margin: 20px 0px 10px 0px;
+    font-size: 24px;
+  }
+  .qa input {
+    width: 160px;
+    padding: 0 15px;
+    font-size: 30px;
+    height: 1.8em;
+    background-color: #e9e9e9;
+    border-color: gray;
+    border-radius: 8px;
+    border-style: solid;
+  }
+  .submit {
+    width: 560px;
+    text-align: center;
+  }
+  .submit input {
+    align-content: center;
+    width: 300px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 0 20px;
+    font-size: 30px;
+    height: 2.0em;
+    color: white;
+    background-color: gray;
+    border-color: gray;
+    border-radius: 40px;
+    border-style: double;
+  }
+  .logs {
+    margin: 0px auto;
+    width: 460px;
+  }
+  .logs p {
+    font-size: 24px;
+  }
+  .logs table {
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: black;
+    font-size: 20px;
+    table-layout: auto; /* もしくはfixed */
+  }
+  .logs thead {
+    color: white;
+    background: #585858;
+    border-bottom: 4px solid black;
+    text-align: center;
+  }
+  .logs tbody tr:nth-child(odd) {
+    background: #e9e9e9;
+  }
+  .logs tbody tr:nth-child(even) {
+    background: #ffffff;
+  }
+  .logs tbody {
+    text-align: right;
+    vertical-align: middle;
+    line-height: 2em;
+    white-space: normal;
+    max-width: none;
+    border: none;
+  }
+  .logs td {
+    padding: 0em 1em; /* 1emは文字の高さ1つ分。２つ指定の場合は上下値 左右値 */
+  }
+}

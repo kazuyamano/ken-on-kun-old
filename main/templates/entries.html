@@ -1,21 +1,50 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>検温くん_第二形態</title>
+    <link rel="stylesheet" href="../static/style.css">
   </head>
   <body>
-    <br>
-    <h1>検温結果おしえてクリクリ</h1>
+    <div class="h">
+      <h1>体温おしえてクリクリ</h1>
+    </div>
+    
     <form action="{{ url_for('add_entry') }}" method=post>
-      <p>社員コードは？　<input type="text" name="jcode" maxlength="7">  ※半角英数字7桁で！</p>
-      <p>今朝の体温は？　<input type="text" name="temp" maxlength="4">  ※半角数字○○.○で！</p>
-      <p><input type="submit" value="送るぶぁい"></p>
-  </form>
-  <br>
-  <p>[送信履歴]</p>
-  <ul class="entries">
-  {% for entry in entries %}
-    <li>社員コード：{{entry.jcode}} / 体温：{{entry.temp}} / 登録日時：{{entry.date}}</li>
-  {% endfor %}
-   </ul>
- </body>
+      <div class="qa" >
+        <p>社員コードは？</p>
+        <input type="text" name="jcode" maxlength="7">  ※半角英数字7桁で！
+        <p>今朝の体温は？</p>
+        <input type="text" name="temp" maxlength="4">  ※半角数字○○.○で！
+      </div>
+      <div class="submit">
+        <input type="submit" value="送るぶぁい">
+      </div>  
+    </form>
+
+    <div class="logs">
+      <p>[送信履歴]</p>
+      <table align=left> <!--trは行--> <!--thは見出しセル--> <!--tdは通常セル-->
+        <thead>
+          <tr>
+            <th>社員コード</th>
+            <th>体温</th>
+            <th>登録日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for entry in entries %}
+          <tr>
+            <td>{{entry.jcode}}</td>
+            <td>{{entry.temp}}</td>
+            <td>{{entry.date.strftime('%a %m-%d %H:%M')}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
 </html>
+
+
