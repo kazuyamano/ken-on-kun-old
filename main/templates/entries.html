@@ -2,24 +2,30 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=560px">
-    <title>検温くん_第二形態</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>検温くん_第3形態</title>
     <link rel="stylesheet" href="../static/style.css">
   </head>
   <body>
     <div class="h">
-      <h1>体温おしえてクリクリ</h1>
+      <h1>検温しますよー</h1>
     </div>
     
     <form action="{{ url_for('add_entry') }}" method=post>
-      <div class="qa" >
-        <p>社員コードは？</p>
-        <input type="text" name="jcode" maxlength="7">  ※半角英数字7桁で！
-        <p>今朝の体温は？</p>
-        <input type="text" name="temp" maxlength="4">  ※半角数字○○.○で！
+      <div class="qa">
+        <div class="jcode" >
+          <div class="q"><p>社員コードは？</p></div>
+          <div class="a"><input type="text" name="jcode" maxlength="7"></div>
+          <div class="ast"><p> ※半角7桁で！</p></div>
+        </div>
+        <div class="temp" >
+          <div class="q"><p>今朝の体温は？</p></div>
+          <div class="a"><input type="text" name="temp" maxlength="4"></div>
+          <div class="ast"><p> ※半角○○.○で！</p></div>
+        </div>
       </div>
       <div class="submit">
-        <input type="submit" value="送るぶぁい">
+        <input type="submit" value="これでOK">
       </div>  
     </form>
 
