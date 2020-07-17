@@ -1,10 +1,11 @@
 import flask 
 from main import app, db
 from main.models import Entry
+from sqlalchemy import desc
 
 @app.route('/')
 def show_entries():
-    entries = Entry.query.all()
+    entries = Entry.query.order_by(desc(Entry.date)).all()
     return flask.render_template('entries.html', entries=entries)
 
 @app.route('/add', methods=['POST'])
