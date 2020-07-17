@@ -34,6 +34,7 @@ body {
   width: 140px;
 }
 .q p {
+  text-align: right;
   margin-top: 0px;
   margin-bottom: 0px;
   margin-right: 10px;
@@ -46,7 +47,7 @@ body {
   font-size: 30px;
   height: 1.8em;
   background-color: white;
-  border-color: gray;
+  border-color: #66AB8D;
   border-radius: 8px;
   border-style: solid;
   border-width: thick;
@@ -71,7 +72,7 @@ body {
   font-size: 30px;
   height: 2.0em;
   color: white;
-  background-color: gray;
+  background-color: #66AB8D;
   border: none;
   border-radius: 40px;
   cursor: pointer;
@@ -151,5 +152,21 @@ body {
     margin-top: 5px;
     margin-bottom: 10px;
     text-align: right;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .a-set {
+    flex-direction: column;
+  }
+  .q, .a {
+    flex-wrap: wrap;
+  }
+  .ast p {
+    text-align: center;
+  }
+  .submit button {
+    width: 90%;
+    margin-top: 20px;
   }
 }
