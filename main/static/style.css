@@ -39,6 +39,7 @@ body {
   border-color: gray;
   border-radius: 8px;
   border-style: solid;
+  border-width: thick;
   -webkit-appearance: none;　/* モバイルSafariの影を消去 */
 }
 .ast p {
