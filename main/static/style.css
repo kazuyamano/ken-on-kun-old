@@ -2,11 +2,7 @@ body {
   width: 100%;
   background: white;
   padding: 10px;
-  font-family: "Helvetica Neue",
-    Arial,
-    "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Segoe UI, Hiragino Kaku Gothic ProN, Hiragino Sans, ヒラギノ角ゴ ProN W3, Arial, メイリオ, Meiryo, sans-serif;
 }
 .h {
   margin: 40px auto;
@@ -19,19 +15,33 @@ body {
 }
 .jcode, .temp {
   font-size: 18px;
-  margin: 30px auto;
+  margin: 0px auto;
   display: flex; /* FlexBox適用 */
   justify-content: space-between;
   align-items: center;  /* FlexBoxでブロック要素を上下中央に */
 }
+.a-set {
+  display: flex;
+  align-items: center;  /* FlexBoxでブロック要素を上下中央に */
+}
+.q {
+  width: 180px;
+}
+.a {
+  width: 160px;
+}
+.ast {
+  width: 140px;
+}
 .q p {
-  margin-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   margin-right: 10px;
   font-size: 24px;
   font-weight: bold;
 }
 .a input {
-  width: 160px;
+  width: 120px;
   padding: 0 15px;
   font-size: 30px;
   height: 1.8em;
@@ -43,6 +53,8 @@ body {
   -webkit-appearance: none;　/* モバイルSafariの影を消去 */
 }
 .ast p {
+  margin-top: 0px;
+  margin-bottom: 0px;
   margin-left: 10px;
   font-size: 16px;
 }
@@ -53,7 +65,7 @@ body {
 .submit button {
   align-content: center;
   width: 300px;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 50px;
   padding: 0 20px;
   font-size: 30px;
@@ -66,10 +78,11 @@ body {
 }
 .logs {
   width: 40%;
+  min-width: 320px;
   margin: 0px auto;
 }
 .logs p {
-  margin: 10px 0px;
+  margin: 20px 0px;
   font-size: 18px;
 }
 .logs table {
@@ -104,5 +117,39 @@ body {
   border: none;
 }
 .logs td {
-  padding: 0em 0.8em; /* 1emは文字の高さ1つ分。２つ指定の場合は上下値 左右値 */
+  padding: 0em 0.3em; /* 1emは文字の高さ1つ分。２つ指定の場合は上下値 左右値 */
+}
+
+@media only screen and (max-width: 1080px) {
+  .qa {
+    width: 100%;
+    flex-direction: column;
+  }
+  .jcode, .temp {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    align-items: center;  /* FlexBoxでブロック要素を上下中央に */
+  }
+}
+@media only screen and (max-width: 480px) {
+  body {
+    margin: auto 0px;
+    padding: 0px;
+  }
+  .jcode, .temp {
+    flex-direction: column;
+  }
+  .a-set, .ast {
+    flex-wrap: wrap;
+  }
+  .ast {
+    width: 100%;
+  }
+  .ast p {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: right;
+  }
 }

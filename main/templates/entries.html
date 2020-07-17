@@ -14,13 +14,17 @@
     <form action="{{ url_for('add_entry') }}" method=post>
       <div class="qa">
         <div class="jcode" >
-          <div class="q"><p>社員コードは？</p></div>
-          <div class="a"><input type="text" name="jcode" maxlength="7"></div>
+          <div class="a-set">
+            <div class="q"><p>社員コードは？</p></div>
+            <div class="a"><input type="text" name="jcode" maxlength="7"></div>
+          </div>
           <div class="ast"><p> ※半角7桁で！</p></div>
         </div>
         <div class="temp" >
-          <div class="q"><p>今朝の体温は？</p></div>
-          <div class="a"><input type="text" name="temp" maxlength="4"></div>
+          <div class="a-set">
+            <div class="q"><p>今朝の体温は？</p></div>
+            <div class="a"><input type="text" name="temp" maxlength="4"></div>
+          </div>
           <div class="ast"><p> ※半角○○.○で！</p></div>
         </div>
       </div>
