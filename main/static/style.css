@@ -38,7 +38,7 @@ body {
   background-color: white;
   border-color: gray;
   border-radius: 8px;
-  border-style: solid;
+  border-style: double;
   box-shadow: none;
 }
 .ast p {
