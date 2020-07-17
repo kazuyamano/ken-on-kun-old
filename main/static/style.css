@@ -38,8 +38,8 @@ body {
   background-color: white;
   border-color: gray;
   border-radius: 8px;
-  border-style: double;
-  box-shadow: none;
+  border-style: solid;
+  -webkit-appearance: none;　/* モバイルSafariの影を消去 */
 }
 .ast p {
   margin-left: 10px;
