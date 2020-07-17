@@ -62,9 +62,7 @@ body {
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  box-shadow: none;
-  background-image:none;
-  appearance: none;
+  -webkit-appearance: none;
 }
 .logs {
   width: 40%;
