@@ -3,16 +3,12 @@ body {
   background: white;
   padding: 10px;
   font-family: 
-    -apple-system,BlinkMacSystemFont,
-    Helvetica Neue,
-    Segoe UI,
-    Hiragino Kaku Gothic ProN,
-    Hiragino Sans,
-    ヒラギノ角ゴ ProN W3,
+    "Helvetica Neue",
     Arial,
-    メイリオ,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
     Meiryo,
-    sans-serif
+    sans-serif;
 }
 .h {
   margin: 40px auto;
