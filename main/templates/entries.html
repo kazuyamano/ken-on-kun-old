@@ -15,29 +15,43 @@
       <div class="qa">
         <div class="jcode" >
           <div class="a-set">
-            <div class="q"><p>社員コードは？</p></div>
-            <div class="a"><input type="text" name="jcode" maxlength="7"></div>
+            <div class="q">
+              <p>社員コードは？</p>
+            </div>
+            <div class="a">
+              <input type="text" name="jcode" id="input1" maxlength="7">
+            </div>
           </div>
-          <div class="ast"><p> ※半角7桁で！</p></div>
+          <div class="ast">
+            <p> ※半角7桁で！</p>
+          </div>
         </div>
         <div class="temp" >
           <div class="a-set">
-            <div class="q"><p>体温は？</p></div>
-            <div class="a"><input type="text" name="temp" maxlength="4"></div>
+            <div class="q">
+              <p>体温は？</p>
+            </div>
+            <div class="a">
+              <input type="text" name="temp" id="input2" maxlength="4">
+            </div>
           </div>
-          <div class="ast"><p> ※半角○○.○で！</p></div>
+          <div class="ast">
+            <p> ※半角○○.○で！</p>
+          </div>
         </div>
       </div>
       <div class="submit">
-        <button type="submit">これでOK</button>
+        <button type="submit" id="submit">これでOK</button>
       </div>
     </form>
 
     <div class="logs">
       <p>[送信履歴]</p>
-      <table align=left> <!--trは行--> <!--thは見出しセル--> <!--tdは通常セル-->
+      <table align=left>
         <thead>
+          <!-- trは列要素 -->
           <tr>
+            <!-- thは見出しセル（自動で太字中央寄せ）-->
             <th>社員コード</th>
             <th>体温</th>
             <th>登録日時</th>
@@ -46,6 +60,7 @@
         <tbody>
           {% for entry in entries %}
           <tr>
+            <!-- tdは通常セル -->
             <td>{{entry.jcode}}</td>
             <td>{{entry.temp}}</td>
             <td>{{entry.date.strftime('%a %m-%d %H:%M')}}</td>
@@ -54,6 +69,58 @@
         </tbody>
       </table>
     </div>
+
+    <!-- ここからJavascript -->
+    <script>
+    /*1.最初から社員コード欄（id="input1"）にカーソルを合わせておく */
+      document.getElementById('input1').focus();
+    /*2.input1に7桁埋まったら、罫線をグレーからグリーンに */
+      const input1 = document.querySelector("#input1");   //document.querySelector()メソッドで、HTMLタグ要素をidで指定（”#id名”）
+      input1.addEventListener("keyup", function(){    // id=”input1"内で、"keyup"(キーを押して離した時）発火で、function(){内容}を作動
+        if (this.value.length < 7){
+          this.style.borderColor = "#d3d3d3";
+        } else{
+          this.style.borderColor = "#66AB8D";
+        }
+      },false);
+    /*3.input2に4桁埋まったら、罫線をグレーからグリーンに */
+      const input2 = document.querySelector("#input2");
+      input2.addEventListener("keyup", function(){ 
+        if (this.value.length < 4){
+          this.style.borderColor = "#d3d3d3";
+        } else{
+          this.style.borderColor = "#66AB8D";
+        }
+      },false);
+    /*4. 2と3が整ったらOKボタンを変更[非活性=>活性]、[グレー=>グリーン]、[マウスオーバー時矢印=>ポインタ] */
+      const button = document.querySelector("#submit");
+      window.addEventListener("DOMContentLoaded", function(){
+        button.disabled = true;
+        input1.addEventListener("keyup", function(){
+          if (input1.value.length < 7 || input2.value.length < 4){
+            button.disabled = true;
+            button.style.backgroundColor = "#d3d3d3";
+            button.style.cursor = "auto";
+          } else{
+            button.disabled = false;
+            button.style.backgroundColor = "#66AB8D";
+            button.style.cursor = "pointer";
+          }
+        },false);
+      // input2の編集中でも同じ動きが起こるよう、スクリプト追加
+        input2.addEventListener("keyup", function(){
+          if (input1.value.length < 7 || input2.value.length < 4){
+            button.disabled = true;
+            button.style.backgroundColor = "#d3d3d3";
+            button.style.cursor = "auto";
+          } else{
+            button.disabled = false;
+            button.style.backgroundColor = "#66AB8D";
+            button.style.cursor = "pointer";
+          }
+        },false);
+      },false);
+    </script>
   </body>
 </html>
 
