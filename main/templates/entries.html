@@ -22,7 +22,7 @@
               <input type="text" name="jcode" id="input1" maxlength="7">
             </div>
           </div>
-          <div class="ast">
+          <div class="alert">
             <p> ※半角7桁で！</p>
           </div>
         </div>
@@ -35,7 +35,7 @@
               <input type="text" name="temp" id="input2" maxlength="4">
             </div>
           </div>
-          <div class="ast">
+          <div class="alert">
             <p> ※半角○○.○で！</p>
           </div>
         </div>
@@ -71,25 +71,27 @@
     </div>
 
     <!-- ここからJavascript -->
+
     <script>
     /*1.最初から社員コード欄（id="input1"）にカーソルを合わせておく */
       document.getElementById('input1').focus();
-    /*2.input1に7桁埋まったら、罫線をグレーからグリーンに */
+    /*2.input1に”大文字アルファベットor数字”で7桁埋まったら、罫線をグレーからグリーンに */
       const input1 = document.querySelector("#input1");   //document.querySelector()メソッドで、HTMLタグ要素をidで指定（”#id名”）
       input1.addEventListener("keyup", function(){    // id=”input1"内で、"keyup"(キーを押して離した時）発火で、function(){内容}を作動
-        if (this.value.length < 7){
-          this.style.borderColor = "#d3d3d3";
-        } else{
+        if (/([A-Z]|\d){7}/.test(this.value)) {  //正規表現：([A-Z]|\d){7}
           this.style.borderColor = "#66AB8D";
+        } else{
+          this.style.borderColor = "#d3d3d3";
         }
       },false);
-    /*3.input2に4桁埋まったら、罫線をグレーからグリーンに */
+    /*3.input2に”35.0〜40.9までの数"が入ったら、罫線をグレーからグリーンに */
       const input2 = document.querySelector("#input2");
       input2.addEventListener("keyup", function(){ 
-        if (this.value.length < 4){
-          this.style.borderColor = "#d3d3d3";
-        } else{
+        const temperature = Number(input2.value);
+        if (temperature>=35 && temperature<41) {
           this.style.borderColor = "#66AB8D";
+        } else{
+          this.style.borderColor = "#d3d3d3";
         }
       },false);
     /*4. 2と3が整ったらOKボタンを変更[非活性=>活性]、[グレー=>グリーン]、[マウスオーバー時矢印=>ポインタ] */
@@ -97,26 +99,28 @@
       window.addEventListener("DOMContentLoaded", function(){
         button.disabled = true;
         input1.addEventListener("keyup", function(){
-          if (input1.value.length < 7 || input2.value.length < 4){
-            button.disabled = true;
-            button.style.backgroundColor = "#d3d3d3";
-            button.style.cursor = "auto";
-          } else{
+          const temperature = Number(input2.value);
+          if (/([A-Z]|\d){7}/.test(input1.value) && (temperature>=35 && temperature<41)){
             button.disabled = false;
             button.style.backgroundColor = "#66AB8D";
             button.style.cursor = "pointer";
+          } else{
+            button.disabled = true;
+            button.style.backgroundColor = "#d3d3d3";
+            button.style.cursor = "auto";
           }
         },false);
-      // input2の編集中でも同じ動きが起こるよう、スクリプト追加
+      // input2の編集中でも同じ動きが起こるようコピペ
         input2.addEventListener("keyup", function(){
-          if (input1.value.length < 7 || input2.value.length < 4){
-            button.disabled = true;
-            button.style.backgroundColor = "#d3d3d3";
-            button.style.cursor = "auto";
-          } else{
+          const temperature = Number(input2.value);
+          if (/([A-Z]|\d){7}/.test(input1.value) && (temperature>=35 && temperature<41)) {
             button.disabled = false;
             button.style.backgroundColor = "#66AB8D";
             button.style.cursor = "pointer";
+          } else{
+            button.disabled = true;
+            button.style.backgroundColor = "#d3d3d3";
+            button.style.cursor = "auto";
           }
         },false);
       },false);
