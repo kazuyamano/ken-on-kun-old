@@ -1,7 +1,7 @@
 body {
+  margin: auto 0px;
   width: 100%;
   background: white;
-  padding: 10px;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Segoe UI, Hiragino Kaku Gothic ProN, Hiragino Sans, ヒラギノ角ゴ ProN W3, Arial, メイリオ, Meiryo, sans-serif;
 }
 .h {
@@ -18,29 +18,28 @@ body {
   margin: 0px auto;
   flex-direction: column;
 }
-.qa-box {
+.qa-set {
   width: 100%;
   display: flex;
   align-items: center;  /* FlexBoxでブロック要素を上下中央に */
 }
-.alert-box {
+.alert-line {
   width: 100%;
   margin-bottom: 30px;
 }
-.alert-box p {
-  margin-top: 5px;
-  margin-bottom: 10px;
+.alert-line p {
+  margin: 5px 0px 10px 0px;
   text-align: right;
   font-size: 16px;
   color: gray;
 }
-.q {
+.q-line {
   width: 180px;
 }
-.a {
+.a-line {
   width: 150px;
 }
-.q p {
+.q-line p {
   text-align: right;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -48,7 +47,7 @@ body {
   font-size: 24px;
   font-weight: bold;
 }
-.a input {
+.a-form input {
   width: 110px;
   padding: 0 10px;
   font-size: 28px;
@@ -132,37 +131,21 @@ body {
     flex-wrap: wrap;
   }
 }
-@media only screen and (max-width: 480px) {
-  body {
-    margin: auto 0px;
-    padding: 0px;
-  }
-  .jcode-area, .temp-area {
-    flex-direction: column;
-  }
-  .qa-box, .alert-box {
-    flex-wrap: wrap;
-  }
-  .alert-box {
-    width: 100%;
-  }
-  .alert-box p {
-    margin-top: 5px;
-    margin-bottom: 10px;
-    text-align: right;
-  }
-}
 
-@media only screen and (max-width: 350px) {
-  .qa-box {
+@media only screen and (max-width: 400px) {
+  .qa-set {
     flex-direction: column;
   }
-  .q, .a {
+  .q-line, .a-line {
     flex-wrap: wrap;
   }
-  .q p, .alert-box p {
+  .q-line p {
     text-align: center;
     margin-bottom: 5px;
+  }
+  .alert-line p {
+    text-align: center;
+    margin: 5px 15px 10px 15px;
   }
   .submit button {
     width: 90%;
