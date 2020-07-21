@@ -6,7 +6,8 @@ from sqlalchemy import desc
 @app.route('/')
 def show_entries():
     entries = Entry.query.order_by(desc(Entry.date)).all()
-    return flask.render_template('entries.html', entries=entries)
+    entries_head = Entry.query.order_by(desc(Entry.date)).limit(5).all()
+    return flask.render_template('entries.html', entries=entries, entries_head=entries_head)
 
 @app.route('/add', methods=['POST'])
 def add_entry():
