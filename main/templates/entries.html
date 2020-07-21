@@ -14,28 +14,28 @@
     <form action="{{ url_for('add_entry') }}" method=post>
       <div class="container">
         <div class="jcode-area" >
-          <div class="qa-box">
-            <div class="q">
+          <div class="qa-set">
+            <div class="q-line">
               <p>社員コードは？</p>
             </div>
-            <div class="a">
+            <div class="a-form">
               <input type="text" name="jcode" id="input1" maxlength="7">
             </div>
           </div>
-          <div class="alert-box">
+          <div class="alert-line">
             <p id="alert1"> ※ 半角英数字で７ケタ、英字は大文字で！</p>
           </div>
         </div>
         <div class="temp-area">
-          <div class="qa-box">
-            <div class="q">
+          <div class="qa-set">
+            <div class="q-line">
               <p>体温は？</p>
             </div>
-            <div class="a">
+            <div class="a-form">
               <input type="text" name="temp" id="input2" maxlength="4">
             </div>
           </div>
-          <div class="alert-box">
+          <div class="alert-line">
             <p id="alert2"> ※ 半角数字、35.0以上41.0未満で！</p>
           </div>
         </div>
@@ -46,7 +46,7 @@
     </form>
 
     <div class="logs">
-      <p>[送信履歴]</p>
+      <p>[直近５件]</p>
       <table align=left>
         <thead>
           <!-- trは列要素 -->
@@ -58,7 +58,7 @@
           </tr>
         </thead>
         <tbody>
-          {% for entry in entries %}
+          {% for entry in entries_head %}
           <tr>
             <!-- tdは通常セル -->
             <td>{{entry.jcode}}</td>
@@ -70,8 +70,8 @@
       </table>
     </div>
 
-    <!-- ここからJavascript -->
 
+    <!-- ここからJavascript -->
     <script>
     /*1.最初から社員コード欄（id="input1"）にカーソルを合わせておく */
       document.getElementById('input1').focus();

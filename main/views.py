@@ -5,8 +5,14 @@ from sqlalchemy import desc
 
 @app.route('/')
 def show_entries():
-    entries = Entry.query.order_by(desc(Entry.date)).all()
+    entries = Entry.query.all() 
+        #Entry  テーブル名
+        #.query クエリ（指示）
+        #.all() 全件取得
+        #別の書き方: session.query(Entry).all()
     entries_head = Entry.query.order_by(desc(Entry.date)).limit(5).all()
+        #.order_by()    並び順を指定
+        #desc(Entry.date)   'date'カラムの降順
     return flask.render_template('entries.html', entries=entries, entries_head=entries_head)
 
 @app.route('/add', methods=['POST'])
