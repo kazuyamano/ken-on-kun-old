@@ -2,7 +2,7 @@ body {
   margin: auto 0px;
   width: 100%;
   background: white;
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Segoe UI, Hiragino Kaku Gothic ProN, Hiragino Sans, ヒラギノ角ゴ ProN W3, Arial, メイリオ, Meiryo, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, 'Roboto', arial, sans-serif;
 }
 .h {
   margin: 30px auto;
@@ -171,7 +171,6 @@ body {
   }
   .alert-line p {
     text-align: center;
-    font-size: 14px;
     margin: 5px 15px 10px 15px;
   }
   .submit-container button {
