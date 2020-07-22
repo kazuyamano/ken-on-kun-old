@@ -135,9 +135,6 @@ body {
   margin: 0px 0px;
   font-size: 18px;
 }
-.spread-link a {
-  margin: 0px 20px;
-}
 
 @media only screen and (max-width: 800px) {
   .module-container {
