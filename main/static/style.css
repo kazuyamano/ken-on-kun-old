@@ -2,7 +2,7 @@ body {
   margin: auto 0px;
   width: 100%;
   background: white;
-  font-family: -apple-system, BlinkMacSystemFont, system-ui, 'Roboto', arial, sans-serif;
+  font-family: sans-serif;
 }
 .h {
   margin: 30px auto;
