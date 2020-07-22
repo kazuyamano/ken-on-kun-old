@@ -88,12 +88,16 @@
       input1.addEventListener("keyup", function(){    // id=”input1"内でキーを押して離したら発火、{}内を作動
         if (/([a-z]|[A-Z]|\d){7}/.test(this.value)) {
           this.style.borderColor = "#66AB8D";
-          this.value = this.value.toUpperCase();  // 小文字で入力しても大文字に変換
           document.getElementById("alert1").textContent = ""; //アラート文を非表示に
         } else{
           this.style.borderColor = "#d3d3d3";
           document.getElementById("alert1").textContent = "※ 半角英数字で７ケタ";
         }
+      },false);
+      input1.addEventListener("blur", function(){    // id=”input1"がフォーカスを失ったら、{}内を作動
+        if (/([a-z]|[A-Z]|\d){7}/.test(this.value)) {
+          this.value = this.value.toUpperCase();  // 小文字を大文字に変換
+        } 
       },false);
     //3.input2に”35.0〜40.9までの数"が入ったら・・・
       const input2 = document.querySelector("#input2");
