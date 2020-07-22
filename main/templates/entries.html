@@ -88,7 +88,7 @@
       input1.addEventListener("keyup", function(){    // id=”input1"内でキーを押して離したら発火、{}内を作動
         if (/([a-z]|[A-Z]|\d){7}/.test(this.value)) {
           this.style.borderColor = "#66AB8D";
-          this.value = this.value.toUpperCase();  // 小文字で入力しても大文字に変換
+          this.value = this.value.toUpperCase();  // 小文字を大文字に変換
           document.getElementById("alert1").textContent = ""; //アラート文を非表示に
         } else{
           this.style.borderColor = "#d3d3d3";
