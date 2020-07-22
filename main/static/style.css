@@ -47,7 +47,7 @@ body {
   width: 100px;
   padding: 0 5px;
   font-size: 24px;
-  height: 1.8em;
+  height: 50px;
   background-color: white;
   border-color: #d3d3d3;
   border-radius: 8px;
@@ -139,7 +139,7 @@ body {
 @media only screen and (max-width: 800px) {
   .module-container {
     width: 90%;
-    min-width: 360px;
+    min-width: 340px;
   }
   .qa-container {
     width: 100%;
@@ -153,9 +153,9 @@ body {
     margin: 0px auto;
   }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 360px) {
   .module-container {
-    width: 90%;
+    width: 100% - 20px;
     min-width: 230px;
   }
   .qa-set {
