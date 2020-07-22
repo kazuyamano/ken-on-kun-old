@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>入力確認画面</title>
+    <link rel="stylesheet" href="../static/style.css">
+  </head>
+  <body>
+    <h>ＯＫ牧場！</h>
+    <p>入力ミスがあれば、<a href='/'>ここから</a>もう一度送信してください！</p>
+    <div class="module-container">
+      <div class="logs-container">
+        <p>[ {{ added_jcode }}さんの履歴 ]</p>
+        <div id="logs-table">
+          <table align=left>
+            <thead>
+               <tr>
+                <th>登録日時</th>
+                <th>体温</th>
+                <th>社員コード</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for entry in entries_jcode %}
+              <tr>
+                <td>{{entry.date.strftime('%a %m-%d %H:%M')}}</td>
+                <td>{{entry.temp}}</td>
+                <td>{{entry.jcode}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <a href='/'>入力画面に戻る</a>
+  </body>
+</html>
