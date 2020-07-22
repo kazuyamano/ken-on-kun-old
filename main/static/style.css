@@ -44,17 +44,16 @@ body {
   font-weight: bold;
 }
 .a-form input {
-  width: 120px;
-  padding: 0 10px;
-  font-size: 28px;
+  width: 100px;
+  padding: 0 5px;
+  font-size: 24px;
   height: 1.8em;
   background-color: white;
   border-color: #d3d3d3;
   border-radius: 8px;
   border-style: solid;
   border-width: thick;
-  -webkit-appearance: none;
-  /* ↑↑モバイル版Safariで発生するのshadowを消去する目的 */
+  -webkit-appearance: none; /* ↑↑モバイル版Safariで発生するのshadowを消去する目的 */
   outline-style: none;
 }
 .alert-line {
@@ -140,7 +139,7 @@ body {
 @media only screen and (max-width: 800px) {
   .module-container {
     width: 90%;
-    min-width: 405px;
+    min-width: 360px;
   }
   .qa-container {
     width: 100%;
@@ -154,10 +153,10 @@ body {
     margin: 0px auto;
   }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 400px) {
   .module-container {
     width: 90%;
-    min-width: 216px;
+    min-width: 230px;
   }
   .qa-set {
     flex-direction: column;
