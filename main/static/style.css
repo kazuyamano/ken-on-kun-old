@@ -5,39 +5,35 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Segoe UI, Hiragino Kaku Gothic ProN, Hiragino Sans, ヒラギノ角ゴ ProN W3, Arial, メイリオ, Meiryo, sans-serif;
 }
 .h {
-  margin: 40px auto;
+  margin: 30px auto;
   text-align: center;
 }
-.container {
+.module-container {
+  width: 90%;
+  max-width: 800px;
+  min-width: 640px;
+  margin: 30px auto;
+  padding: 20px 0px;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+  border-radius: 22px;
+}
+.qa-container {
   width: 640px;
   margin: 0px auto;
-  display: flex;
+  padding-top: 20px;
+  display: flex;  /* Flexboxで中の要素を横並列に */
 }
 .jcode-area, .temp-area {
   font-size: 18px;
   margin: 0px auto;
-  flex-direction: column;
 }
 .qa-set {
   width: 100%;
   display: flex;
   align-items: center;  /* FlexBoxでブロック要素を上下中央に */
 }
-.alert-line {
-  width: 100%;
-  margin-bottom: 30px;
-}
-.alert-line p {
-  margin: 5px 0px 10px 0px;
-  text-align: right;
-  font-size: 16px;
-  color: gray;
-}
 .q-line {
   width: 180px;
-}
-.a-line {
-  width: 150px;
 }
 .q-line p {
   text-align: right;
@@ -48,7 +44,7 @@ body {
   font-weight: bold;
 }
 .a-form input {
-  width: 110px;
+  width: 120px;
   padding: 0 10px;
   font-size: 28px;
   height: 1.8em;
@@ -61,15 +57,26 @@ body {
   /* ↑↑モバイル版Safariで発生するのshadowを消去する目的 */
   outline-style: none;
 }
-.submit {
+.alert-line {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.alert-line p {
+  margin: 5px 0px 10px 0px;
+  text-align: right;
+  font-size: 16px;
+  color: gray;
+}
+.submit-container {
   margin: 0px auto;
+  padding-bottom: 20px;
   text-align: center;
 }
-.submit button {
+.submit-container button {
   align-content: center;
   width: 300px;
   margin-top: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   padding: 0 20px;
   font-size: 30px;
   height: 2.0em;
@@ -78,61 +85,80 @@ body {
   border: none;
   border-radius: 40px;
 }
-.logs {
-  width: 40%;
-  min-width: 320px;
+.logs-container {
+  width: 640px;
   margin: 0px auto;
 }
-.logs p {
-  margin: 20px 0px;
+.logs-container p {
+  margin: 10px auto;
   font-size: 18px;
 }
-.logs table {
+#logs-table {
+  height: 240px;
+  overflow: auto;
+}
+#logs-table table {
+  table-layout: auto;
   width: 100%;
   border: none;
   border-collapse: collapse;
   border-spacing: 0;
   color: black;
   font-size: 18px;
-  table-layout: auto; /* もしくはfixed */
 }
-.logs thead {
+#logs-table thead {
   color: white;
   background: gray;
   border-bottom: 2px solid black;
   font-size: 16px;
   text-align: center;
-  line-height: 2em;
+  line-height: 30px;
 }
-.logs tbody tr:nth-child(odd) {
+#logs-table tbody tr:nth-child(odd) {
   background: #e9e9e9;
 }
-.logs tbody tr:nth-child(even) {
+#logs-table tbody tr:nth-child(even) {
   background: #ffffff;
 }
-.logs tbody {
+#logs-table tbody {
   text-align: center;
   vertical-align: middle;
-  line-height: 2em;
+  line-height: 40px;
   white-space: normal;
   max-width: none;
   border: none;
 }
-.logs td {
+#logs-table td {
   padding: 0em 0.3em; /* 1emは文字の高さ1つ分。２つ指定の場合は上下値 左右値 */
+}
+.spread-link {
+  text-align: right;
+  margin: 10px 10px;
+  font-size: 18px;
 }
 
 @media only screen and (max-width: 800px) {
-  .container {
+  .module-container {
+    width: 90%;
+    min-width: 405px;
+  }
+  .qa-container {
     width: 100%;
-    flex-direction: column;
+    flex-direction: column;   /* FlexBoxでブロック要素を上下中央に */
   }
   .jcode-area, .temp-area {
     flex-wrap: wrap;
   }
-}
+  .logs-container {
+    width: 90%;
+    margin: 0px auto;
+  }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 450px) {
+  .module-container {
+    width: 90%;
+    min-width: 216px;
+  }
   .qa-set {
     flex-direction: column;
   }
@@ -145,10 +171,16 @@ body {
   }
   .alert-line p {
     text-align: center;
+    font-size: 14px;
     margin: 5px 15px 10px 15px;
   }
-  .submit button {
-    width: 90%;
+  .submit-container button {
+    max-width: 300px;
+    width: 80%;
     margin-top: 20px;
+  }
+  .logs-container {
+    width: 90%;
+    margin: 0px auto;
   }
 }
