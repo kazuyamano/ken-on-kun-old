@@ -3,6 +3,7 @@ from flask import request
 from main import app, db
 from main.models import Entry
 from sqlalchemy import desc
+import datetime
 
 @app.route('/', methods=['get'])
 def show_entries():
@@ -14,7 +15,9 @@ def show_entries():
 
 @app.route('/added', methods=['POST'])
 def add_entry():
-    entry = Entry(jcode = flask.request.form['jcode'],temp = flask.request.form['temp'])
+    entry= Entry(jcode=flask.request.form['jcode'],\
+    temp=flask.request.form['temp'],\
+    date =datetime.datetime.now())
     db.session.add(entry)
     db.session.commit()
     added_jcode = request.form.get('jcode')
