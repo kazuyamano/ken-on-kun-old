@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<title>検温くん [履歴検索]</title>
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <div class="h">
+    <h1>履歴を検索</h1>
+  </div>
+
+  <form action="{{ url_for('sort_logs') }}" method=post>
+    <div class="">
+      <div class="qa-container">
+        <div class="jcode-area" >
+          <div class="qa-set">
+            <div class="q-line">
+              <p>社員コードは？</p>
+            </div>
+            <div class="a-form">
+              <input type="text" name="jcode" id="input1" maxlength="7">
+            </div>
+          </div>
+          <div class="alert-line">
+            <p id="alert1"> ※ 半角英数字で７ケタ</p>
+          </div>
+        </div>
+      </div>
+      <div class="submit-container">
+        <button type="submit" id="submit">これでOK</button>
+      </div>
+    </div>
+  </form>
+  <p><a href='/'>入力画面に戻る</a></p>
+
+  <!-- ここからJavascript -->
+  <script>
+    //1.最初から社員コード欄（id="input1"）にカーソルを合わせておく
+      document.getElementById('input1').focus();
+    //2.input1に英数字で7桁埋まったら・・・
+      const input1 = document.querySelector("#input1");   //id名を#で指定
+      input1.addEventListener("keyup", function(){    // id=”input1"内でキーを押して離したら発火、{}内を作動
+        if (/([a-z]|[A-Z]|\d){7}/.test(this.value)) {
+          this.style.borderColor = "#66AB8D";
+          this.value = this.value.toUpperCase();  // 小文字を大文字に変換
+          document.getElementById("alert1").textContent = ""; //アラート文を非表示に
+        } else{
+          this.style.borderColor = "#d3d3d3";
+          document.getElementById("alert1").textContent = "※ 半角英数字で７ケタ";
+        }
+      },false);
+      input1.addEventListener("blur", function(){    // id=”input1"がフォーカスを失ったら、{}内を作動
+        if (/([a-z]|[A-Z]|\d){7}/.test(this.value)) {
+          this.value = this.value.toUpperCase();  // 小文字を大文字に変換
+        } 
+      },false);
+    //3. 2が整ったらOKボタンを変更[非活性=>活性]、[グレー=>グリーン]、[マウスオーバー時矢印=>ポインタ]
+      const button = document.querySelector("#submit");
+      window.addEventListener("DOMContentLoaded", function(){
+        button.disabled = true;
+        input1.addEventListener("keyup", function(){
+          if (/([A-Z]|\d){7}/.test(input1.value)){
+            button.disabled = false;
+            button.style.backgroundColor = "#66AB8D";
+            button.style.cursor = "pointer";
+          } else{
+            button.disabled = true;
+            button.style.backgroundColor = "#d3d3d3";
+            button.style.cursor = "auto";
+          }
+        },false);
+      },false);
+    </script>
+  </body>
+</html>

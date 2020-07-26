@@ -3,14 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <title>検温くん [登録完了]</title>
+    <title>検温くん [履歴詳細]</title>
     <link rel="stylesheet" href="../static/style.css">
   </head>
   <body>
-    <h1>ＯＫ牧場！</h1>
+    <div class="h">
+      <h1>履歴の検索結果</h1>
+    </div>
     <div class="module-container">
       <div class="logs-container">
-        <p>[ {{ added_jcode }}さんの履歴 ]</p>
+        <p>[ {{ specified_jcode }}さんの履歴 ]</p>
         <div id="logs-table">
           <table align=left>
             <thead>
@@ -21,7 +23,7 @@
               </tr>
             </thead>
             <tbody>
-              {% for entry in added_result %}
+              {% for entry in sorted_result %}
               <tr>
                 <td>{{entry.date.strftime('%a %m-%d %H:%M')}}</td>
                 <td>{{entry.temp}}</td>
@@ -33,6 +35,8 @@
         </div>
       </div>
     </div>
-    <a href='/'>入力画面に戻る</a>
+
+    <p>csvダウンロードは、<a href=''>こちらから</a></p>
+    <p><a href='/'>入力画面に戻る</a></p>
   </body>
 </html>

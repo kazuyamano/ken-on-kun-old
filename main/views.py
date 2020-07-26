@@ -15,27 +15,32 @@ def show_entries():
 
 @app.route('/added', methods=['POST'])
 def add_entry():
-    entry= Entry(jcode=flask.request.form['jcode'],\
-    temp=flask.request.form['temp'],\
-    date =datetime.datetime.now())
+    entry= Entry(\
+        jcode=flask.request.form['jcode']\
+        ,temp=flask.request.form['temp']\
+        ,date =datetime.datetime.now())
     db.session.add(entry)
     db.session.commit()
     added_jcode = request.form.get('jcode')
-    entries_jcode = db.session.query(Entry)\
-        .filter(Entry.jcode==added_jcode)\
+    added_result = db.session.query(Entry)\
+        .filter(Entry.jcode == added_jcode)\
+        .order_by(desc(Entry.date))\
+        .limit(10)\
+        .all()
+    return flask.render_template('added.html', added_jcode=added_jcode, added_result=added_result)
+
+@app.route('/logs-specify', methods=['get'])
+def specify_logs():
+    return flask.render_template('logs-specify.html')
+
+@app.route('/logs-result', methods=['post'])
+def sort_logs():
+    specified_jcode = request.form.get('jcode') 
+    sorted_result = db.session.query(Entry)\
+        .filter(Entry.jcode == specified_jcode)\
         .order_by(desc(Entry.date))\
         .all()
-    return flask.render_template('added.html', added_jcode=added_jcode, entries_jcode=entries_jcode)
-
-@app.route('/logs', methods=['post','get'])
-def view_logs():
-  df = pd.read_csv('static/BodyTemp_data.csv',index_col=0)
-  df_columns = df.columns.tolist()
-  df_columns.insert(0,'date')
-  df_values = df.values.tolist()
-  df_index = df.index.tolist()
-  return render_template('logs.html', title='履歴を見る画面どすえ', df_columns=df_columns, df_values=df_values, df_index=df_index)
-
+    return flask.render_template('logs-result.html', specified_jcode=specified_jcode, sorted_result=sorted_result)
 
 
 
