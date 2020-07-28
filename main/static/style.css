@@ -108,14 +108,16 @@ h1 {
   margin: 0px auto;
 }
 .logs-container p {
-  margin: 10px auto;
+  margin: 10px auto 5px auto;
   font-size: 18px;
 }
 #logs-5 {
   height: 240px;
+  overflow: auto;
 }
 #logs-all {
-  height: 230px;
+  height: 220px;
+  margin-top: 10px;
   overflow: auto;
 }
 .logs-table {
@@ -146,7 +148,7 @@ h1 {
   line-height: 40px;
   white-space: normal;
   max-width: none;
-  border: none;
+  border: solid 1px #d3d3d3;
 }
 .logs-table td {
   padding: 0em 0.3em; /* 1emは文字の高さ1つ分。２つ指定の場合は上下値 左右値 */
