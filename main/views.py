@@ -54,9 +54,9 @@ def download_csv(obj):
             writer.writerow([i.id, i.date,i.temp,i.jcode])
 
     else:
-        writer.writerow(['登録ID','登録日時','体温','社員コード'])
+        writer.writerow(['登録ID','登録日時','体温','社員コード','コメント'])
         for i in Entry.query.filter(Entry.jcode == obj).all():
-            writer.writerow([i.id, i.date,i.temp,i.jcode])
+            writer.writerow([i.id, i.date,i.temp,i.jcode,i.comment])
 
     res = make_response()
     res.data = f.getvalue()

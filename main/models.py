@@ -7,9 +7,10 @@ class Entry(db.Model):
     jcode = db.Column(db.String)
     temp = db.Column(db.Float)
     date = db.Column(db.DateTime)
+    comment = db.Column(db.String)
 
     def __repr__(self):
-        return "<Entry id={} jcode={!r} temp={!r} date={}>".format(self.id, self.jcode, self.temp, self.date)
+        return "<Entry id={} jcode={!r} temp={!r} date={} comment={!r}>".format(self.id, self.jcode, self.temp, self.date, self.comment)
 
 
 def init():
