@@ -15,8 +15,8 @@ h1 {
   width: 90%;
   max-width: 800px;
   min-width: 640px;
-  margin: 30px auto;
-  padding: 20px 0px;
+  margin: 20px auto;
+  padding: 10px 0px;
 }
 .container {
   padding: 0px 0px;
@@ -66,7 +66,7 @@ h1 {
 }
 .alert-line {
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .alert-line p {
   margin: 5px 0px 10px 0px;
@@ -76,7 +76,7 @@ h1 {
 }
 .submit-container {
   margin: 0px auto;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   text-align: center;
 }
 #enter-btn, #std-btn, #download-btn {
