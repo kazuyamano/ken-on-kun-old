@@ -4,16 +4,24 @@ body {
   background: white;
   font-family: sans-serif;
 }
+#entry-done {
+  background-color: #d3d3d3;
+}
 h1 {
   margin: 30px auto;
   text-align: center;
 }
-.module-container {
+.container, .module-container {
   width: 90%;
   max-width: 800px;
   min-width: 640px;
   margin: 30px auto;
   padding: 20px 0px;
+}
+.container {
+  padding: 0px 0px;
+}
+.module-container {
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
   border-radius: 22px;
 }
@@ -71,41 +79,55 @@ h1 {
   padding-bottom: 20px;
   text-align: center;
 }
-.submit-container button {
+#enter-btn, #std-btn, #download-btn {
   align-content: center;
   width: 300px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 0 20px;
-  font-size: 30px;
-  height: 2.0em;
+  height: 60px;
   color: white;
-  background-color: #d3d3d3;
+  font-size: 26px;
+  margin-top: 25px;
+  margin-bottom: 0px;
+  padding: 0 20px;
   border: none;
   border-radius: 40px;
+  background-color: #66AB8D;
+  cursor: pointer;
+}
+#enter-btn {
+  background-color: #d3d3d3;
+  cursor: default;
+}
+#download-btn {
+  width: 100%;
+  height: 46px;
+  font-size: 24px;
+  border-radius: 8px;
 }
 .logs-container {
-  width: 640px;
+  width: 90%;
+  max-width: 720px;
   margin: 0px auto;
 }
 .logs-container p {
   margin: 10px auto;
   font-size: 18px;
 }
-#logs-table {
+#logs-5 {
   height: 240px;
+}
+#logs-all {
+  height: 400px;
   overflow: auto;
 }
-#logs-table table {
+.logs-table {
   table-layout: auto;
   width: 100%;
-  border: none;
   border-collapse: collapse;
   border-spacing: 0;
   color: black;
   font-size: 18px;
 }
-#logs-table thead {
+.logs-table thead {
   color: white;
   background: gray;
   border-bottom: 2px solid black;
@@ -113,13 +135,13 @@ h1 {
   text-align: center;
   line-height: 30px;
 }
-#logs-table tbody tr:nth-child(odd) {
+.logs-table tbody tr:nth-child(odd) {
   background: #e9e9e9;
 }
-#logs-table tbody tr:nth-child(even) {
+.logs-table tbody tr:nth-child(even) {
   background: #ffffff;
 }
-#logs-table tbody {
+.logs-table tbody {
   text-align: center;
   vertical-align: middle;
   line-height: 40px;
@@ -127,7 +149,7 @@ h1 {
   max-width: none;
   border: none;
 }
-#logs-table td {
+.logs-table td {
   padding: 0em 0.3em; /* 1emは文字の高さ1つ分。２つ指定の場合は上下値 左右値 */
 }
 .spread-link {
@@ -136,9 +158,8 @@ h1 {
 }
 
 @media only screen and (max-width: 800px) {
-  .module-container {
-    width: 90%;
-    min-width: 340px;
+  .module-container, .container {
+    min-width: unset;
   }
   .qa-container {
     width: 100%;
@@ -147,15 +168,14 @@ h1 {
   .jcode-area, .temp-area {
     flex-wrap: wrap;
   }
-  .logs-container {
-    width: 85%;
-    margin: 0px auto;
+  #enter-btn, #std-btn {
+    max-width: 300px;
+    width: 75%;
   }
 }
 
 @media only screen and (max-width: 360px) {
-  .module-container {
-    width: 100% - 20px;
+  .module-container, .container {
     min-width: 230px;
   }
   .qa-set {
@@ -172,9 +192,10 @@ h1 {
     text-align: center;
     margin: 5px 15px 10px 15px;
   }
-  .submit-container button {
-    max-width: 300px;
-    width: 80%;
+  #enter-btn, #std-btn {
     margin-top: 20px;
+  }
+  #download-btn {
+    font-size: 22px;
   }
 }

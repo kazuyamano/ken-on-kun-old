@@ -1,11 +1,13 @@
 import flask 
-from flask import request
+from flask import request, make_response
 from main import app, db
 from main.models import Entry
 from sqlalchemy import desc
 import datetime
+from io import StringIO
+import csv
 
-@app.route('/', methods=['get'])
+@app.route('/', methods=['get','post'])
 def show_entries():
     entries_head = Entry.query\
         .order_by(desc(Entry.date))\
@@ -13,7 +15,7 @@ def show_entries():
         .all()
     return flask.render_template('entry.html', entries_head=entries_head)
 
-@app.route('/added', methods=['POST'])
+@app.route('/entry-done', methods=['GET','POST'])
 def add_entry():
     entry= Entry(\
         jcode=flask.request.form['jcode']\
@@ -21,15 +23,14 @@ def add_entry():
         ,date =datetime.datetime.now())
     db.session.add(entry)
     db.session.commit()
-    added_jcode = request.form.get('jcode')
-    added_result = db.session.query(Entry)\
-        .filter(Entry.jcode == added_jcode)\
-        .order_by(desc(Entry.date))\
-        .limit(10)\
-        .all()
-    return flask.render_template('added.html', added_jcode=added_jcode, added_result=added_result)
+    specified_jcode = request.form.get('jcode')
+    sorted_result = db.session.query(Entry)\
+                    .filter(Entry.jcode == specified_jcode)\
+                    .order_by(desc(Entry.date))\
+                    .all()
+    return flask.render_template('logs-result.html', specified_jcode=specified_jcode, sorted_result=sorted_result)
 
-@app.route('/logs-specify', methods=['get'])
+@app.route('/logs-specify', methods=['get','post'])
 def specify_logs():
     return flask.render_template('logs-specify.html')
 
@@ -37,10 +38,31 @@ def specify_logs():
 def sort_logs():
     specified_jcode = request.form.get('jcode') 
     sorted_result = db.session.query(Entry)\
-        .filter(Entry.jcode == specified_jcode)\
-        .order_by(desc(Entry.date))\
-        .all()
+                    .filter(Entry.jcode == specified_jcode)\
+                    .order_by(desc(Entry.date))\
+                    .all()
     return flask.render_template('logs-result.html', specified_jcode=specified_jcode, sorted_result=sorted_result)
+
+@app.route('/download/<obj>/', methods=['get','post'])
+def download_csv(obj):
+    f = StringIO()
+    writer = csv.writer(f, quotechar='"', quoting=csv.QUOTE_ALL, lineterminator="\n")
+
+    if obj == 'all':
+        writer.writerow(['登録ID','登録日時','体温','社員コード'])
+        for i in Entry.query.all():
+            writer.writerow([i.id, i.date,i.temp,i.jcode])
+
+    else:
+        writer.writerow(['登録ID','登録日時','体温','社員コード'])
+        for i in Entry.query.filter(Entry.jcode == obj).all():
+            writer.writerow([i.id, i.date,i.temp,i.jcode])
+
+    res = make_response()
+    res.data = f.getvalue()
+    res.headers['Content-Type'] = 'text/csv'
+    res.headers['Content-Disposition'] = 'attachment; filename='+ obj +'.csv'
+    return res
 
 
 

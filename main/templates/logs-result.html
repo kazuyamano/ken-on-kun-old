@@ -8,13 +8,12 @@
   </head>
   <body>
     <div class="h">
-      <h1>履歴の検索結果</h1>
+      <h1>{{ specified_jcode }}さんの履歴</h1>
     </div>
     <div class="module-container">
       <div class="logs-container">
-        <p>[ {{ specified_jcode }}さんの履歴 ]</p>
-        <div id="logs-table">
-          <table align=left>
+        <div id="logs-all">
+          <table class="logs-table" align=left>
             <thead>
                <tr>
                 <th>登録日時</th>
@@ -33,10 +32,19 @@
             </tbody>
           </table>
         </div>
+        <form action="/download/{{ specified_jcode }}/" method=post>
+          <div class="submit-container">
+            <button type="submit" id="download-btn">CSVでダウンロード</button>
+          </div>
+        </form>
       </div>
     </div>
-
-    <p>csvダウンロードは、<a href=''>こちらから</a></p>
-    <p><a href='/'>入力画面に戻る</a></p>
+    <div class="container">
+      <form action="/" method=post>
+        <div class="submit-container">
+          <button type="submit" id="std-btn">TOPへ戻る</button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

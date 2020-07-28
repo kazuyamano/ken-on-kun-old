@@ -10,9 +10,8 @@
   <div class="h">
     <h1>履歴を検索</h1>
   </div>
-
-  <form action="{{ url_for('sort_logs') }}" method=post>
-    <div class="">
+  <div class="module-container">
+    <form action="{{ url_for('sort_logs') }}" method=post>
       <div class="qa-container">
         <div class="jcode-area" >
           <div class="qa-set">
@@ -29,11 +28,18 @@
         </div>
       </div>
       <div class="submit-container">
-        <button type="submit" id="submit">これでOK</button>
+        <button type="submit" id="std-btn">これで検索</button>
       </div>
-    </div>
-  </form>
-  <p><a href='/'>入力画面に戻る</a></p>
+    </form>
+  </div>
+  
+  <div class="container">
+    <form action="/" method=post>
+      <div class="submit-container">
+        <button type="submit" id="std-btn">TOPへ戻る</button>
+      </div>
+    </form>
+  </div>
 
   <!-- ここからJavascript -->
   <script>
