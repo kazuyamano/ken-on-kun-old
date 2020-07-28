@@ -99,9 +99,8 @@ h1 {
 }
 #download-btn {
   width: 100%;
-  height: 46px;
   font-size: 24px;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 .logs-container {
   width: 90%;
@@ -116,7 +115,7 @@ h1 {
   height: 240px;
 }
 #logs-all {
-  height: 400px;
+  height: 330px;
   overflow: auto;
 }
 .logs-table {
