@@ -3,7 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timedelta, timezone
 
 class Entry(db.Model):
-    __tablename__ = 'Entry'
     id = db.Column(db.Integer, primary_key=True)
     jcode = db.Column(db.String)
     temp = db.Column(db.Float)
