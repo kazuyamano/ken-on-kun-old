@@ -76,7 +76,7 @@ h1 {
 }
 .submit-container {
   margin: 0px auto;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   text-align: center;
 }
 #enter-btn, #std-btn, #download-btn {
@@ -115,7 +115,7 @@ h1 {
   height: 240px;
 }
 #logs-all {
-  height: 290px;
+  height: 230px;
   overflow: auto;
 }
 .logs-table {
