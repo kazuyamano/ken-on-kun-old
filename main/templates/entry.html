@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="../static/style.css">
   </head>
   <body>
-    <div class="h">
+    <div class="container">
       <h1>検温しますよー</h1>
     </div>
 
-    <form action="{{ url_for('add_entry') }}" method=post>
-      <div class="module-container">
-        <div class="qa-container">
-          <div class="jcode-area" >
+    <div class="module-container">
+      <form action="{{ url_for('add_entry') }}" method=post>
+        <div class="qa-area">
+          <div class="jcode-box" >
             <div class="qa-set">
               <div class="q-line">
                 <p>社員コードは？</p>
@@ -27,7 +27,7 @@
               <p id="alert1"> ※ 半角英数字で７ケタ</p>
             </div>
           </div>
-          <div class="temp-area">
+          <div class="temp-box">
             <div class="qa-set">
               <div class="q-line">
                 <p>体温は？</p>
@@ -41,16 +41,36 @@
             </div>
           </div>
         </div>
-        <div class="submit-container">
+          
+        <div class="extra-area">
+          <div>
+            <button type="button" id="extra-btn">+</button>
+          </div>
+          <div id="extra-box">
+            <div class="checkbox-set">
+              <div class="extra-checkbox">
+                <input type="checkbox" name="breathlessness" value="true" id="input3"> 息苦しさ
+              </div>
+              <div class="extra-checkbox">
+                <input type="checkbox" name="dullness" value="true" id="input4"> 強いだるさ
+              </div>
+            </div>
+            <div class="extra-commnent">
+              <input type="text" name="comment" placeholder="その他メモ欄"　id="input5">
+            </div>
+          </div>
+        </div>
+
+        <div class="submit-area">
           <button type="submit" id="enter-btn">これで登録</button>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
 
     <div class="module-container">
-      <div class="logs-container">
+      <div class="logs-area">
         <p>[新着５件]</p>
-        <div id="logs-5">
+        <div class="logs-box5">
           <table class="logs-table" align=left>
             <thead>
               <!-- trは列要素 -->
@@ -73,14 +93,13 @@
             </tbody>
           </table>
         </div>
-        <div class="spread-link">
-          <form action="{{ url_for('specify_logs') }}" method=post>
-            <div class="submit-container">
-              <button type="submit" id="std-btn">履歴を検索</button>
-            </div>
-          </form>
-        </div>
       </div>
+
+      <form action="{{ url_for('specify_logs') }}" method=post>
+        <div class="submit-area">
+          <button type="submit" id="std-btn">履歴を検索</button>
+        </div>
+      </form>
     </div>
 
     <!-- ここからJavascript -->
@@ -117,33 +136,61 @@
         }
       },false);
     //4. 2と3が整ったらOKボタンを変更[非活性=>活性]、[グレー=>グリーン]、[マウスオーバー時矢印=>ポインタ]
-      const button = document.querySelector("#enter-btn");
+      const enterbtn = document.querySelector("#enter-btn");
+      const extrabtn = document.querySelector("#extra-btn");
+      const extrabox = document.querySelector("#extra-box");
       window.addEventListener("DOMContentLoaded", function(){
-        button.disabled = true;
+        extrabtn.disabled = true;
+        enterbtn.disabled = true;
+        extrabox.style.display ="none";
+
         input1.addEventListener("keyup", function(){
           const temperature = Number(input2.value);
           if (/([A-Z]|\d){7}/.test(input1.value) && (temperature>=35 && temperature<41)){
-            button.disabled = false;
-            button.style.backgroundColor = "#66AB8D";
-            button.style.cursor = "pointer";
+            enterbtn.disabled = false;
+            extrabtn.disabled = false;
+            enterbtn.style.backgroundColor = "#66AB8D";
+            extrabtn.style.backgroundColor = "#66AB8D";
+            enterbtn.style.cursor = "pointer";
+            extrabtn.style.cursor = "pointer";
           } else{
-            button.disabled = true;
-            button.style.backgroundColor = "#d3d3d3";
-            button.style.cursor = "auto";
+            enterbtn.disabled = true;
+            extrabtn.disabled = true;
+            enterbtn.style.backgroundColor = "#d3d3d3";
+            extrabtn.style.backgroundColor = "#d3d3d3";
+            enterbtn.style.cursor = "auto";
+            extrabtn.style.cursor = "auto";
           }
         },false);
-      // input2の編集中でも同じ動きが起こるようコピペ
+        // input2の編集中でも同じ動きが起こるようコピペ
         input2.addEventListener("keyup", function(){
           const temperature = Number(input2.value);
           if (/([A-Z]|\d){7}/.test(input1.value) && (temperature>=35 && temperature<41)) {
-            button.disabled = false;
-            button.style.backgroundColor = "#66AB8D";
-            button.style.cursor = "pointer";
+            enterbtn.disabled = false;
+            extrabtn.disabled = false;
+            enterbtn.style.backgroundColor = "#66AB8D";
+            extrabtn.style.backgroundColor = "#66AB8D";
+            enterbtn.style.cursor = "pointer";
+            extrabtn.style.cursor = "pointer";
           } else{
-            button.disabled = true;
-            button.style.backgroundColor = "#d3d3d3";
-            button.style.cursor = "auto";
+            enterbtn.disabled = true;
+            extrabtn.disabled = true;
+            enterbtn.style.backgroundColor = "#d3d3d3";
+            extrabtn.style.backgroundColor = "#d3d3d3";
+            enterbtn.style.cursor = "auto";
+            extrabtn.style.cursor = "auto";
           }
+        },false);
+
+        // extra-btnを押したらextra-boxが開く
+        extrabtn.addEventListener("click", function(){ 
+          if(extrabox.style.display=="block"){
+		        extrabox.style.display ="none";
+            extrabtn.innerHTML = "+";
+	        }else{
+	        	extrabox.style.display ="block";
+            extrabtn.innerHTML = "-";
+	        } 
         },false);
       },false);
     </script>

@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="../static/style.css">
   </head>
   <body>
-    <div class="h">
+    <div class="container">
       <h1>{{ specified_jcode }}の履歴</h1>
     </div>
     <div class="module-container">
-      <div class="logs-container">
-        <div id="logs-all">
+      <div class="logs-area">
+        <div class="logs-box">
           <table class="logs-table" align=left>
             <thead>
                <tr>
@@ -33,7 +33,7 @@
           </table>
         </div>
         <form action="/download/{{ specified_jcode }}/" method=post>
-          <div class="submit-container">
+          <div class="submit-area">
             <button type="submit" id="download-btn">CSVでダウンロード</button>
           </div>
         </form>
@@ -41,7 +41,7 @@
     </div>
     <div class="container">
       <form action="/" method=post>
-        <div class="submit-container">
+        <div class="submit-area">
           <button type="submit" id="std-btn">TOPへ戻る</button>
         </div>
       </form>

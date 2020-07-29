@@ -4,9 +4,6 @@ body {
   background: white;
   font-family: sans-serif;
 }
-#entry-done {
-  background-color: #d3d3d3;
-}
 h1 {
   margin: 30px auto;
   text-align: center;
@@ -16,22 +13,35 @@ h1 {
   max-width: 800px;
   min-width: 640px;
   margin: 20px auto;
-  padding: 10px 0px;
-}
-.container {
-  padding: 0px 0px;
 }
 .module-container {
+  padding: 10px 0px;
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
   border-radius: 22px;
 }
-.qa-container {
+
+.qa-area {
   width: 640px;
   margin: 0px auto;
   padding-top: 20px;
   display: flex;  /* Flexboxで中の要素を横並列に */
 }
-.jcode-area, .temp-area {
+.extra-area {
+  margin: 0px auto;
+  text-align: center;
+}
+.submit-area {
+  margin: 0px auto;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.logs-area {
+  width: 90%;
+  max-width: 720px;
+  margin: 0px auto;
+}
+
+.jcode-box, .temp-box {
   font-size: 18px;
   margin: 0px auto;
 }
@@ -74,12 +84,40 @@ h1 {
   font-size: 16px;
   color: gray;
 }
-.submit-container {
+
+#extra-box {
   margin: 0px auto;
-  padding-bottom: 20px;
-  text-align: center;
+  padding-top: 20px;
 }
-#enter-btn, #std-btn, #download-btn {
+.checkbox-set {
+  width: 50%;
+  min-width: 280px;
+  margin: 10px auto;
+  display: flex;  /* Flexboxで中の要素を横並列に */
+  justify-content:space-around  /* Flexboxで中の要素を均等間隔に配置 */
+}
+.extra-checkbox {
+  font-size: 20px;
+}
+.extra-commnent {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.extra-commnent input {
+  font-size: 16px;
+  height: 40px;
+  width: 60%;
+  min-width: 280px;
+  padding-left: 8px;
+  background-color: white;
+  border-color: #d3d3d3;
+  border-style: solid;
+  border-radius: 5px;
+  -webkit-appearance: none; /* ↑↑モバイル版Safariで発生するshadowを消去する目的 */
+  outline-style: none;
+}
+
+button {
   align-content: center;
   width: 300px;
   height: 60px;
@@ -93,6 +131,16 @@ h1 {
   background-color: #66AB8D;
   cursor: pointer;
 }
+#extra-btn {
+  width: 28px;
+  height: 28px;
+  margin: 0px auto;
+  padding: 0px;
+  font-size: 24px;
+  border-radius: 14px;
+  background-color: #d3d3d3;
+  cursor: default;
+}
 #enter-btn {
   background-color: #d3d3d3;
   cursor: default;
@@ -102,22 +150,18 @@ h1 {
   font-size: 24px;
   border-radius: 5px;
 }
-.logs-container {
-  width: 90%;
-  max-width: 720px;
-  margin: 0px auto;
-}
-.logs-container p {
+
+.logs-area p {
   margin: 10px auto 5px auto;
   font-size: 18px;
 }
-#logs-5 {
-  height: 240px;
-  overflow: auto;
-}
-#logs-all {
+.logs-box {
   height: 220px;
   margin-top: 10px;
+  overflow: auto;
+}
+.logs-box5 {
+  height: 240px;
   overflow: auto;
 }
 .logs-table {
@@ -153,20 +197,17 @@ h1 {
 .logs-table td {
   padding: 0em 0.3em; /* 1emは文字の高さ1つ分。２つ指定の場合は上下値 左右値 */
 }
-.spread-link {
-  text-align: right;
-  font-size: 18px;
-}
+
 
 @media only screen and (max-width: 800px) {
   .module-container, .container {
     min-width: unset;
   }
-  .qa-container {
+  .qa-area {
     width: 100%;
     flex-direction: column;   /* FlexBoxでブロック要素を上下中央に */
   }
-  .jcode-area, .temp-area {
+  .jcode-box, .temp-box {
     flex-wrap: wrap;
   }
   #enter-btn, #std-btn {
@@ -192,6 +233,31 @@ h1 {
   .alert-line p {
     text-align: center;
     margin: 5px 15px 10px 15px;
+  }
+  #extra-box {
+    margin: 0px auto;
+    padding-top: 0px;
+  }
+  .checkbox-set {
+    min-width: unset;
+    width: 140px;
+    margin: 10px auto;
+    flex-direction: column; 
+  }
+  .extra-checkbox {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 18px;
+  }
+  .extra-commnent {
+    margin-top: 10px;
+  }
+  .extra-commnent input {
+    max-width: 280px;
+    width: 80%;
+    min-width: unset;
+    font-size: 14px;
   }
   #enter-btn, #std-btn {
     margin-top: 20px;
