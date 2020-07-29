@@ -18,9 +18,12 @@ def show_entries():
 @app.route('/entry-done', methods=['GET','POST'])
 def add_entry():
     entry= Entry(\
-        jcode=flask.request.form['jcode']\
-        ,temp=flask.request.form['temp']\
-        ,date =datetime.datetime.now())
+            jcode=flask.request.form['jcode']\
+            ,temp=flask.request.form['temp']\
+            ,date =datetime.datetime.now()\
+            ,comment =flask.request.form['comment']\
+            ,breathlessness =flask.request.form['breathlessness']\
+            ,dullness =flask.request.form['dullness'])
     db.session.add(entry)
     db.session.commit()
     specified_jcode = request.form.get('jcode')
