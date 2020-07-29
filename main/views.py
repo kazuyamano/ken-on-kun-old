@@ -49,14 +49,14 @@ def download_csv(obj):
     writer = csv.writer(f, quotechar='"', quoting=csv.QUOTE_ALL, lineterminator="\n")
 
     if obj == 'all':
-        writer.writerow(['登録ID','登録日時','体温','社員コード'])
+        writer.writerow(['登録ID','社員コード','登録日時','体温','息苦しさ','強いだるさ','その他メモ'])
         for i in Entry.query.all():
-            writer.writerow([i.id, i.date,i.temp,i.jcode])
+            writer.writerow([i.id, i.jcode, i.date, i.temp, i.breathlessness, i.dullness, i.comment])
 
     else:
-        writer.writerow(['登録ID','登録日時','体温','社員コード','コメント'])
+        writer.writerow(['登録ID','社員コード','登録日時','体温','息苦しさ','強いだるさ','その他メモ'])
         for i in Entry.query.filter(Entry.jcode == obj).all():
-            writer.writerow([i.id, i.date,i.temp,i.jcode,i.comment])
+            writer.writerow([i.id, i.jcode, i.date, i.temp, i.breathlessness, i.dullness, i.comment])
 
     res = make_response()
     res.data = f.getvalue()
