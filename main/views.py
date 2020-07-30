@@ -10,14 +10,14 @@ import csv
 @app.route('/', methods=['get','post'])
 def show_entries():
     entries_head = Entry.query\
-        .order_by(desc(Entry.date))\
-        .limit(5)\
-        .all()
+                    .order_by(desc(Entry.date))\
+                    .limit(5)\
+                    .all()
     return flask.render_template('entry.html', entries_head=entries_head)
 
 @app.route('/entry-done', methods=['GET','POST'])
 def add_entry():
-    entry= Entry(\
+    entry = Entry(\
             jcode=flask.request.form['jcode']\
             ,temp=flask.request.form['temp']\
             ,date =datetime.datetime.now()\
@@ -52,12 +52,11 @@ def download_csv(obj):
     writer = csv.writer(f, quotechar='"', quoting=csv.QUOTE_ALL, lineterminator="\n")
 
     if obj == 'all':
-        writer.writerow(['登録ID','社員コード','登録日時','体温','息苦しさ','強いだるさ','その他メモ'])
+        writer.writerow(['登録No','社員コード','登録日時','体温','息苦しさ','強いだるさ','その他メモ'])
         for i in Entry.query.all():
-            writer.writerow([i.id, i.jcode, i.date, i.temp, i.breathlessness, i.dullness, i.comment])
-
+            writer.writerow([i.id, i.jcode, i.date.strftime('%a %m-%d %H:%M'), i.temp, i.breathlessness, i.dullness, i.comment])
     else:
-        writer.writerow(['登録ID','社員コード','登録日時','体温','息苦しさ','強いだるさ','その他メモ'])
+        writer.writerow(['登録No','社員コード','登録日時','体温','息苦しさ','強いだるさ','その他メモ'])
         for i in Entry.query.filter(Entry.jcode == obj).all():
             writer.writerow([i.id, i.jcode, i.date.strftime('%a %m-%d %H:%M'), i.temp, i.breathlessness, i.dullness, i.comment])
 
