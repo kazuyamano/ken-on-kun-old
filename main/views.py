@@ -6,6 +6,7 @@ from sqlalchemy import desc
 import datetime
 from io import StringIO
 import csv
+import pandas as pd
 
 @app.route('/', methods=['get','post'])
 def show_entries():
@@ -46,24 +47,24 @@ def sort_logs():
                     .all()
     return flask.render_template('logs-result.html', specified_jcode=specified_jcode, sorted_result=sorted_result)
 
-@app.route('/download/<obj>/', methods=['get','post'])
-def download_csv(obj):
+@app.route('/download/<key>/', methods=['get','post'])
+def download_csv(key):
     f = StringIO()
     writer = csv.writer(f, quotechar='"', quoting=csv.QUOTE_ALL, lineterminator="\n")
 
-    if obj == 'all':
+    if key == 'all':
         writer.writerow(['id','jcode','date','temp','breathlessness','dullness','comment'])
         for i in Entry.query.all():
             writer.writerow([i.id, i.jcode, i.date, i.temp, i.breathlessness, i.dullness, i.comment])
     else:
         writer.writerow(['登録No','社員コード','登録日時','体温','息苦しさ','強いだるさ','その他メモ'])
-        for i in Entry.query.filter(Entry.jcode == obj).all():
+        for i in Entry.query.filter(Entry.jcode == key).all():
             writer.writerow([i.id, i.jcode, i.date.strftime('%a %m-%d %H:%M'), i.temp, i.breathlessness, i.dullness, i.comment])
 
     res = make_response()
     res.data = f.getvalue()
     res.headers['Content-Type'] = 'text/csv'
-    res.headers['Content-Disposition'] = 'attachment; filename='+ obj +'.csv'
+    res.headers['Content-Disposition'] = 'attachment; filename='+ key +'.csv'
     return res
 
 
