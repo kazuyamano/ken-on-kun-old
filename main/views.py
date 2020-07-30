@@ -6,7 +6,6 @@ from sqlalchemy import desc
 import datetime
 from io import StringIO
 import csv
-import pandas as pd
 
 @app.route('/', methods=['get','post'])
 def show_entries():
