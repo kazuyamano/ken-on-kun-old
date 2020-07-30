@@ -17,7 +17,7 @@
           <div class="jcode-box" >
             <div class="qa-set">
               <div class="q-line">
-                <p>社員コードは？</p>
+                <p>Myコードは？</p>
               </div>
               <div class="a-form">
                 <input type="text" name="jcode" id="input1" maxlength="7">
@@ -49,22 +49,22 @@
           <div id="extra-box">
             <div class="checkbox-set">
               <div class="extra-checkbox">
-                <input type="checkbox" name="breathlessness" value="1" id="input3"> 息苦しさ
+                <input type="checkbox" name="breathlessness" value="1" id="input3"> 息つらい
                 <input type="hidden" name="breathlessness" value="0" id="input3">
               </div>
               <div class="extra-checkbox">
-                <input type="checkbox" name="dullness" value="1" id="input4"> 強いだるさ
+                <input type="checkbox" name="dullness" value="1" id="input4"> 体だるい
                 <input type="hidden" name="dullness" value="0" id="input4">
               </div>
             </div>
             <div class="extra-commnent">
-              <input type="text" name="comment" placeholder="その他メモ欄"　id="input5">
+              <input type="text" name="comment" placeholder="その他メモ"　id="input5">
             </div>
           </div>
         </div>
 
         <div class="submit-area">
-          <button type="submit" id="enter-btn">これで登録</button>
+          <button type="submit" id="enter-btn">これで記録</button>
         </div>
       </form>
     </div>
@@ -78,9 +78,9 @@
               <!-- trは列要素 -->
               <tr>
                 <!-- thは見出しセル（自動で太字中央寄せ）-->
-                <th>登録日時</th>
+                <th>記録日時</th>
                 <th>体温</th>
-                <th>社員コード</th>
+                <th>Myコード</th>
               </tr>
             </thead>
             <tbody>
@@ -105,16 +105,16 @@
     </div>
 
     <div class="container" id="admin-link">
-      <p>管理者用：<a href="/download/all">全データ出力</a></p>
+      <p>管理人用：<a href="/download/all">全データ出力</a></p>
     </div>
 
 
     <script type="text/javascript">
       const input1 = document.querySelector("#input1");   //id名を#で指定
       const input2 = document.querySelector("#input2");
-      //1.最初から社員コード欄（id="input1"）にカーソルを合わせておく
+      //最初からid="input1"にカーソルを合わせておく
       document.getElementById('input1').focus();
-      //2.input1に英数字で7桁埋まったら・・・
+      //input1に英数字で7桁埋まったら・・・
       input1.addEventListener("keyup", function(){    // id=”input1"内でキーを押して離したら発火、{}内を作動
         if (/([a-z]|[A-Z]|\d){7}/.test(this.value)) {
           this.style.borderColor = "#66AB8D";
@@ -130,7 +130,7 @@
           this.value = this.value.toUpperCase();  // 小文字を大文字に変換
         } 
       },false);
-      //3.input2に”35.0〜40.9までの数"が入ったら・・・
+      //input2に”35.0〜40.9までの数"が入ったら・・・
       input2.addEventListener("keyup", function(){ 
         const temperature = Number(input2.value);
         if (temperature>=35 && temperature<41) {
@@ -141,7 +141,7 @@
           document.getElementById("alert2").textContent = "※ 35.0以上41.0未満";
         }
       },false);
-      //4. 2と3が整ったらOKボタンを変更[非活性=>活性]、[グレー=>グリーン]、[マウスオーバー時矢印=>ポインタ]
+      //input1と2が整ったらOKボタンを活性、色変更、マウスオーバー時ポインタに
       const enterbtn = document.querySelector("#enter-btn");
       const extrabtn = document.querySelector("#extra-btn");
       const extrabox = document.querySelector("#extra-box");
@@ -150,7 +150,7 @@
         extrabtn.disabled = true;
         enterbtn.disabled = true;
         extrabox.style.display ="none";
-
+        //input1編集中を対象に記述
         input1.addEventListener("keyup", function(){
           const temperature = Number(input2.value);
           if (/([A-Z]|\d){7}/.test(input1.value) && (temperature>=35 && temperature<41)){
@@ -169,7 +169,7 @@
             extrabtn.style.cursor = "auto";
           }
         },false);
-        // input2の編集中でも同じ動きが起こるようコピペ
+        //input2編集中でも同じ動きが起こるようコピペ
         input2.addEventListener("keyup", function(){
           const temperature = Number(input2.value);
           if (/([A-Z]|\d){7}/.test(input1.value) && (temperature>=35 && temperature<41)) {
@@ -189,7 +189,7 @@
           }
         },false);
 
-        // extra-btnを押したらextra-boxが開く
+        //extra-btnを押したらextra-boxが開く
         extrabtn.addEventListener("click", function(){ 
           if(extrabox.style.display=="block"){
 		        extrabox.style.display ="none";
@@ -199,7 +199,7 @@
             extrabtn.innerHTML = "－";
 	        }
         },false);
-        // マウスオーバーで緑を濃く
+        //ボタンマウスオーバーで緑を濃く
         enterbtn.addEventListener("mouseover", function(){ 
           enterbtn.style.backgroundColor = "#518F74";
         },false);

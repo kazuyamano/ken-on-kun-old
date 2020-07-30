@@ -16,7 +16,7 @@
         <div class="jcode-box" >
           <div class="qa-set">
             <div class="q-line">
-              <p>社員コードは？</p>
+              <p>Myコードは？</p>
             </div>
             <div class="a-form">
               <input type="text" name="jcode" id="input1" maxlength="7">
@@ -43,9 +43,9 @@
 
 
   <script>
-    //1.最初から社員コード欄（id="input1"）にカーソルを合わせておく
+    //最初からid="input1"にカーソルを合わせておく
       document.getElementById('input1').focus();
-    //2.input1に英数字で7桁埋まったら・・・
+    //input1に英数字で7桁埋まったら・・・
       const input1 = document.querySelector("#input1");
       input1.addEventListener("keyup", function(){
         if (/([a-z]|[A-Z]|\d){7}/.test(this.value)) {
@@ -62,7 +62,7 @@
           this.value = this.value.toUpperCase();
         } 
       },false);
-      //3. 2が整ったらOKボタンを変更[非活性=>活性]、[グレー=>グリーン]、[マウスオーバー時矢印=>ポインタ]
+      //input1が整ったらOKボタンを活性、色変更、マウスオーバー時ポインタに
       const enterbtn = document.querySelector("#enter-btn");
       const stdbtn = document.querySelector("#std-btn");
       window.addEventListener("DOMContentLoaded", function(){
@@ -80,7 +80,7 @@
           }
         },false);
 
-        // マウスオーバーで緑を濃く
+        //ボタンマウスオーバーで緑を濃く
         enterbtn.addEventListener("mouseover", function(){ 
           enterbtn.style.backgroundColor = "#518F74";
         },false);
