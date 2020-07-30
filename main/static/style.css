@@ -4,6 +4,9 @@ body {
   background: white;
   font-family: sans-serif;
 }
+#ken-on {
+  height: 160px;
+}
 h1 {
   margin: 30px auto;
   text-align: center;
@@ -12,9 +15,11 @@ h1 {
   width: 90%;
   max-width: 800px;
   min-width: 640px;
-  margin: 20px auto;
+  margin: 0px auto;
+  text-align: center;
 }
 .module-container {
+  margin: 0px auto 25px auto;
   padding: 10px 0px;
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
   border-radius: 22px;
@@ -200,6 +205,9 @@ button {
 
 
 @media only screen and (max-width: 800px) {
+  #ken-on {
+  height: 120px;
+  }
   .module-container, .container {
     min-width: unset;
   }
@@ -217,6 +225,9 @@ button {
 }
 
 @media only screen and (max-width: 360px) {
+  #ken-on {
+  height: 90px;
+  }
   .module-container, .container {
     min-width: 230px;
   }
