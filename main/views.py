@@ -52,9 +52,9 @@ def download_csv(obj):
     writer = csv.writer(f, quotechar='"', quoting=csv.QUOTE_ALL, lineterminator="\n")
 
     if obj == 'all':
-        writer.writerow(['登録No','社員コード','登録日時','体温','息苦しさ','強いだるさ','その他メモ'])
+        writer.writerow(['id','jcode','date','temp','breathlessness','dullness','comment'])
         for i in Entry.query.all():
-            writer.writerow([i.id, i.jcode, i.date.strftime('%a %m-%d %H:%M'), i.temp, i.breathlessness, i.dullness, i.comment])
+            writer.writerow([i.id, i.jcode, i.date, i.temp, i.breathlessness, i.dullness, i.comment])
     else:
         writer.writerow(['登録No','社員コード','登録日時','体温','息苦しさ','強いだるさ','その他メモ'])
         for i in Entry.query.filter(Entry.jcode == obj).all():

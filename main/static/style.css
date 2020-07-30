@@ -197,6 +197,9 @@ button {
 .logs-table td {
   padding: 0em 0.3em; /* 1emは文字の高さ1つ分。２つ指定の場合は上下値 左右値 */
 }
+#admin-link {
+  text-align: right;
+}
 
 
 @media only screen and (max-width: 800px) {
