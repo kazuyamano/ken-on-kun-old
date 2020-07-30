@@ -1,5 +1,8 @@
+#ディレクトリ単位
+__pycache__
+old
 venv
+
+#ファイル単位
 test.py
-main/__pycache__
-main/test.db
-main/templates/old
+test.db
