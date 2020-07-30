@@ -12,9 +12,11 @@ class Entry(db.Model):
     comment = db.Column(db.String)
 
     def __repr__(self):
-        return "<Entry id={} jcode={!r} temp={!r} date={} breathlessness={!r} dullness={!r} comment={!r}>"\
+        return "<Entry id={} jcode={!r} temp={} date={} breathlessness={!r} dullness={!r} comment={!r}>"\
             .format(self.id, self.jcode, self.temp, self.date, self.breathlessness, self.dullness, self.comment)
-
 
 def init():
     db.create_all()
+
+# __repr__はデバッグの時に正式な文字列を返す（たとえば'1'は 1 でなく、'1'と返される）　←repr()を呼ぶ
+# !rも上と同じことを.format()メソッドの結果に対して行う。
