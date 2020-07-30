@@ -53,7 +53,7 @@ h1 {
 
 .jcode-box, .temp-box {
   font-size: 18px;
-  margin: 0px auto;
+  margin: 5px auto 0px auto;
 }
 .qa-set {
   width: 100%;
@@ -86,15 +86,17 @@ h1 {
 }
 .alert-line {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .alert-line p {
-  margin: 5px 0px 10px 0px;
+  margin: 5px 0px 0px 0px;
   text-align: right;
   font-size: 16px;
   color: gray;
 }
-
+.extra-area {
+  margin-top: 10px;
+}
 #extra-box {
   margin: 0px auto;
   padding-top: 20px;

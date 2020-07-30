@@ -63,7 +63,7 @@ def download_csv(key):
     res = make_response()
     res.data = f.getvalue()
     res.headers['Content-Type'] = 'text/csv'
-    res.headers['Content-Disposition'] = 'attachment; filename='+ key +'.csv'
+    res.headers['Content-Disposition'] = 'attachment; filename = ken-on-log_'+ key +'.csv'
     return res
 
 

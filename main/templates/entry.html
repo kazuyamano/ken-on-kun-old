@@ -110,10 +110,11 @@
 
 
     <script type="text/javascript">
-    //1.最初から社員コード欄（id="input1"）にカーソルを合わせておく
-      document.getElementById('input1').focus();
-    //2.input1に英数字で7桁埋まったら・・・
       const input1 = document.querySelector("#input1");   //id名を#で指定
+      const input2 = document.querySelector("#input2");
+      //1.最初から社員コード欄（id="input1"）にカーソルを合わせておく
+      document.getElementById('input1').focus();
+      //2.input1に英数字で7桁埋まったら・・・
       input1.addEventListener("keyup", function(){    // id=”input1"内でキーを押して離したら発火、{}内を作動
         if (/([a-z]|[A-Z]|\d){7}/.test(this.value)) {
           this.style.borderColor = "#66AB8D";
@@ -129,8 +130,7 @@
           this.value = this.value.toUpperCase();  // 小文字を大文字に変換
         } 
       },false);
-    //3.input2に”35.0〜40.9までの数"が入ったら・・・
-      const input2 = document.querySelector("#input2");
+      //3.input2に”35.0〜40.9までの数"が入ったら・・・
       input2.addEventListener("keyup", function(){ 
         const temperature = Number(input2.value);
         if (temperature>=35 && temperature<41) {
@@ -141,10 +141,11 @@
           document.getElementById("alert2").textContent = "※ 35.0以上41.0未満";
         }
       },false);
-    //4. 2と3が整ったらOKボタンを変更[非活性=>活性]、[グレー=>グリーン]、[マウスオーバー時矢印=>ポインタ]
+      //4. 2と3が整ったらOKボタンを変更[非活性=>活性]、[グレー=>グリーン]、[マウスオーバー時矢印=>ポインタ]
       const enterbtn = document.querySelector("#enter-btn");
       const extrabtn = document.querySelector("#extra-btn");
       const extrabox = document.querySelector("#extra-box");
+      const stdbtn = document.querySelector("#std-btn");
       window.addEventListener("DOMContentLoaded", function(){
         extrabtn.disabled = true;
         enterbtn.disabled = true;
@@ -196,7 +197,26 @@
 	        }else{
 	        	extrabox.style.display ="block";
             extrabtn.innerHTML = "－";
-	        } 
+	        }
+        },false);
+        // マウスオーバーで緑を濃く
+        enterbtn.addEventListener("mouseover", function(){ 
+          enterbtn.style.backgroundColor = "#518F74";
+        },false);
+        enterbtn.addEventListener("mouseout", function(){ 
+          enterbtn.style.backgroundColor = "#66AB8D";
+        },false);
+        extrabtn.addEventListener("mouseover", function(){ 
+          extrabtn.style.backgroundColor = "#518F74";
+        },false);
+        extrabtn.addEventListener("mouseout", function(){ 
+          extrabtn.style.backgroundColor = "#66AB8D";
+        },false);
+        stdbtn.addEventListener("mouseover", function(){ 
+          stdbtn.style.backgroundColor = "#518F74";
+        },false);
+        stdbtn.addEventListener("mouseout", function(){ 
+          stdbtn.style.backgroundColor = "#66AB8D";
         },false);
       },false);
     </script>

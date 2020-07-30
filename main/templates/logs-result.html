@@ -46,5 +46,23 @@
         </div>
       </form>
     </div>
+
+    <script type="text/javascript">
+      // マウスオーバーで緑を濃く
+      const dlbtn = document.querySelector("#download-btn");
+      const stdbtn = document.querySelector("#std-btn");
+      dlbtn.addEventListener("mouseover", function(){ 
+        dlbtn.style.backgroundColor = "#518F74";
+      },false);
+      dlbtn.addEventListener("mouseout", function(){ 
+        dlbtn.style.backgroundColor = "#66AB8D";
+      },false);
+      stdbtn.addEventListener("mouseover", function(){ 
+        stdbtn.style.backgroundColor = "#518F74";
+      },false);
+      stdbtn.addEventListener("mouseout", function(){ 
+        stdbtn.style.backgroundColor = "#66AB8D";
+      },false);
+    </script>
   </body>
 </html>

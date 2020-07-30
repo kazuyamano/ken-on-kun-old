@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="submit-area">
-        <button type="submit" id="std-btn">これで検索</button>
+        <button type="submit" id="enter-btn">これで検索</button>
       </div>
     </form>
   </div>
@@ -41,41 +41,57 @@
     </form>
   </div>
 
-  <!-- ここからJavascript -->
+
   <script>
     //1.最初から社員コード欄（id="input1"）にカーソルを合わせておく
       document.getElementById('input1').focus();
     //2.input1に英数字で7桁埋まったら・・・
-      const input1 = document.querySelector("#input1");   //id名を#で指定
-      input1.addEventListener("keyup", function(){    // id=”input1"内でキーを押して離したら発火、{}内を作動
+      const input1 = document.querySelector("#input1");
+      input1.addEventListener("keyup", function(){
         if (/([a-z]|[A-Z]|\d){7}/.test(this.value)) {
           this.style.borderColor = "#66AB8D";
-          this.value = this.value.toUpperCase();  // 小文字を大文字に変換
-          document.getElementById("alert1").textContent = ""; //アラート文を非表示に
+          this.value = this.value.toUpperCase();
+          document.getElementById("alert1").textContent = "";
         } else{
           this.style.borderColor = "#d3d3d3";
           document.getElementById("alert1").textContent = "※ 半角英数字で７ケタ";
         }
       },false);
-      input1.addEventListener("blur", function(){    // id=”input1"がフォーカスを失ったら、{}内を作動
+      input1.addEventListener("blur", function(){
         if (/([a-z]|[A-Z]|\d){7}/.test(this.value)) {
-          this.value = this.value.toUpperCase();  // 小文字を大文字に変換
+          this.value = this.value.toUpperCase();
         } 
       },false);
-    //3. 2が整ったらOKボタンを変更[非活性=>活性]、[グレー=>グリーン]、[マウスオーバー時矢印=>ポインタ]
-      const button = document.querySelector("#submit");
+      //3. 2が整ったらOKボタンを変更[非活性=>活性]、[グレー=>グリーン]、[マウスオーバー時矢印=>ポインタ]
+      const enterbtn = document.querySelector("#enter-btn");
+      const stdbtn = document.querySelector("#std-btn");
       window.addEventListener("DOMContentLoaded", function(){
-        button.disabled = true;
+        enterbtn.disabled = true;
+
         input1.addEventListener("keyup", function(){
           if (/([A-Z]|\d){7}/.test(input1.value)){
-            button.disabled = false;
-            button.style.backgroundColor = "#66AB8D";
-            button.style.cursor = "pointer";
+            enterbtn.disabled = false;
+            enterbtn.style.backgroundColor = "#66AB8D";
+            enterbtn.style.cursor = "pointer";
           } else{
-            button.disabled = true;
-            button.style.backgroundColor = "#d3d3d3";
-            button.style.cursor = "auto";
+            enterbtn.disabled = true;
+            enterbtn.style.backgroundColor = "#d3d3d3";
+            enterbtn.style.cursor = "auto";
           }
+        },false);
+
+        // マウスオーバーで緑を濃く
+        enterbtn.addEventListener("mouseover", function(){ 
+          enterbtn.style.backgroundColor = "#518F74";
+        },false);
+        enterbtn.addEventListener("mouseout", function(){ 
+          enterbtn.style.backgroundColor = "#66AB8D";
+        },false);
+        stdbtn.addEventListener("mouseover", function(){ 
+          stdbtn.style.backgroundColor = "#518F74";
+        },false);
+        stdbtn.addEventListener("mouseout", function(){ 
+          stdbtn.style.backgroundColor = "#66AB8D";
         },false);
       },false);
     </script>
