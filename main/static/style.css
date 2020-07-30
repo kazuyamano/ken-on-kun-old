@@ -4,6 +4,12 @@ body {
   background: white;
   font-family: sans-serif;
 }
+#top-img-container {
+  text-align: center;
+}
+#top-img {
+  width: 100%;
+}
 h1 {
   margin: 30px auto;
   text-align: center;
@@ -12,12 +18,13 @@ h1 {
   width: 90%;
   max-width: 800px;
   min-width: 640px;
-  margin: 20px auto;
+  margin: 0px auto;
 }
 .module-container {
   padding: 10px 0px;
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
   border-radius: 22px;
+  margin-bottom: 20px;
 }
 
 .qa-area {
