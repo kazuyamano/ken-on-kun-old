@@ -4,6 +4,10 @@ body {
   background: white;
   font-family: sans-serif;
 }
+h1 {
+  margin: 30px auto;
+  text-align: center;
+}
 #top-container {
   width:90%;
   max-width: 500px;
@@ -12,10 +16,6 @@ body {
 }
 #top-img {
   width: 100%;
-}
-h1 {
-  margin: 30px auto;
-  text-align: center;
 }
 .container, .module-container {
   width: 90%;
@@ -28,6 +28,42 @@ h1 {
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
   border-radius: 22px;
   margin-bottom: 20px;
+}
+#line {
+  margin-top: 40px;
+  text-align: center;
+}
+#line p {
+  margin: 0px auto 20px auto;
+}
+#sns-link {
+  width: 100%;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center
+}
+#tw-btn, #fb-btn {
+  width: 120px;
+  border-radius: 4px;
+  margin: 0px 10px ;
+  text-align: center;
+  height: 32px;
+  padding-top: 8px;
+}
+.fa-twitter, .fa-facebook-f {
+  color: white;
+  font-size: 24px;
+}
+#tw-btn {
+  background-color: #1DA1F2;
+}
+#fb-btn {
+  background-color: #3C5A99;
+}
+
+#alldata-link {
+  text-align: center;
+  margin: 60px auto;
 }
 
 .qa-area {
@@ -209,9 +245,6 @@ button {
 .logs-table td {
   padding: 0em 0.3em; /* 1emは文字の高さ1つ分。２つ指定の場合は上下値 左右値 */
 }
-#admin-link {
-  text-align: right;
-}
 
 
 @media only screen and (max-width: 800px) {
@@ -232,7 +265,7 @@ button {
 }
 
 @media only screen and (max-width: 360px) {
-  .module-container, .container {
+  .container, .module-container {
     min-width: 230px;
   }
   .qa-set {
