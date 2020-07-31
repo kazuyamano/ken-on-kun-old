@@ -6,3 +6,4 @@ venv
 #ファイル単位
 test.py
 test.db
+.DS_Store

@@ -30,7 +30,7 @@ h1 {
   margin-bottom: 20px;
 }
 #line {
-  margin-top: 50px;
+  margin-top: 70px;
   text-align: center;
 }
 #line p {
@@ -63,7 +63,7 @@ h1 {
 
 #alldata-link {
   text-align: center;
-  margin: 60px auto;
+  margin: 70px auto 40px auto;
 }
 
 .qa-area {
