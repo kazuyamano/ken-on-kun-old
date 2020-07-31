@@ -29,42 +29,6 @@ h1 {
   border-radius: 22px;
   margin-bottom: 20px;
 }
-#line {
-  margin-top: 70px;
-  text-align: center;
-}
-#line p {
-  margin: 0px auto 20px auto;
-}
-#sns-link {
-  width: 100%;
-  margin: 30px auto;
-  display: flex;
-  justify-content: center
-}
-#tw-btn, #fb-btn {
-  width: 120px;
-  border-radius: 4px;
-  margin: 0px 10px ;
-  text-align: center;
-  height: 32px;
-  padding-top: 8px;
-}
-.fa-twitter, .fa-facebook-f {
-  color: white;
-  font-size: 24px;
-}
-#tw-btn {
-  background-color: #1DA1F2;
-}
-#fb-btn {
-  background-color: #3C5A99;
-}
-
-#alldata-link {
-  text-align: center;
-  margin: 70px auto 40px auto;
-}
 
 .qa-area {
   width: 640px;
@@ -166,14 +130,12 @@ h1 {
 }
 
 button {
-  align-content: center;
   width: 300px;
   height: 60px;
   color: white;
   font-size: 26px;
   margin-top: 25px;
   margin-bottom: 0px;
-  padding: 0 20px;
   border: none;
   border-radius: 40px;
   background-color: #66AB8D;
@@ -247,6 +209,76 @@ button {
 }
 
 
+.footer-container {
+  width: 360px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+#line {
+  margin-top: 60px;
+  text-align: center;
+}
+#line p {
+  margin: 0px auto 20px auto;
+}
+.comment {
+  margin: 0px auto 10px auto;
+  font-size: 10pt;
+  color: #202020;
+}
+
+#admin {
+  margin: 0px auto;
+  margin: 80px auto 10px auto;
+  text-align: center;
+}
+#admin p {
+  margin: 10px auto;
+}
+#tw-btn, #fb-btn, #gh-btn, #nt-btn {
+  width: 160px;
+  height: 50px;
+  border-radius: 3px;
+  margin: 0px ;
+  text-align: center;
+}
+.fa-twitter, .fa-facebook-f {
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.fa-github {
+  color: white;
+  font-size: 32px;
+}
+#fa-twitter2 {
+  color: white;
+  font-size: 24px;
+}
+#tw-btn {
+  background-color: #1DA1F2;
+}
+#fb-btn {
+  background-color: #3C5A99;
+}
+#gh-btn {
+  margin: 0px auto;
+  background-color: #211F1F;
+}
+#nt-btn {
+  margin: 0px auto;
+  padding-top: 8px;
+  background-color: #41C9B4;
+}
+#alldata-link {
+  width: 90%;
+  text-align: center;
+  margin: 0px auto 40px auto;
+}
+
+
 @media only screen and (max-width: 800px) {
   .module-container, .container {
     min-width: unset;
@@ -313,4 +345,13 @@ button {
   #download-btn {
     font-size: 22px;
   }
-}
+
+  .footer-container {
+    width: 90%;
+    min-width: 230px;
+    flex-direction: column; 
+  }
+
+  #fb-btn,#nt-btn {
+    margin-top: 10px;
+  }
