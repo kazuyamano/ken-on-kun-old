@@ -208,7 +208,7 @@ h1 {
   padding: 0em 0.3em; /* 1emは文字の高さ1つ分。２つ指定の場合は上下値 左右値 */
 }
 
-.line-container, .sns-container, .admin-container {
+.line-container, .sns-container {
   text-align: center;
   width: 300px;
 }
@@ -221,13 +221,15 @@ h1 {
   justify-content: space-around;
 }
 .admin-container {
+  width: 330px;
   margin: 50px auto 0px auto;
+  text-align: center;
 }
 .admin-container p {
   margin: 10px auto;
 }
 .admin-link-box {
-  width: 300px;
+  width: 100%;
   margin: 0px auto 60px auto;
   display: flex;
   justify-content: space-around;
@@ -250,7 +252,7 @@ h1 {
   font-size: 20px;
 }
 .link-btn-angular {
-  width: 100px;
+  width: 110px;
   height: 42px;
   border-radius: 0px;
   margin: 0px ;
@@ -277,6 +279,7 @@ h1 {
   margin: 0px auto;
   color: white;
   background-color: #211F1F;
+  font-size: 30px;
 }
 #note-btn {
   padding-top: 2px;
@@ -351,14 +354,21 @@ h1 {
   #download-btn {
     font-size: 22px;
   }
-
-  .footer-container {
-    width: 90%;
-    min-width: 230px;
-    flex-direction: column; 
+  .line-container, .sns-container {
+    width: 240px;
   }
-
+  .link-btn {
+    width: 110px;
+    font-size: 18px;
+  }
   #fb-btn,#nt-btn {
     margin-top: 10px;
   }
+  .admin-container {
+    width: 240px;
+  }
+  .link-btn-angular {
+    width: 80px;
+  }
+  
 }
