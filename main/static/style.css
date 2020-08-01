@@ -210,7 +210,7 @@ h1 {
 
 .line-container, .sns-container, .admin-container {
   text-align: center;
-  width: 270px;
+  width: 300px;
 }
 .line-container {
   margin: 60px auto 10px auto;
@@ -227,7 +227,7 @@ h1 {
   margin: 10px auto;
 }
 .admin-link-box {
-  width: 220px;
+  width: 300px;
   margin: 0px auto 60px auto;
   display: flex;
   justify-content: space-around;
@@ -238,9 +238,9 @@ h1 {
   font-size: 11pt;
 }
 
-.link-btn-square {
+.link-btn {
   width: 130px;
-  height: 50px;
+  height: 46px;
   border-radius: 3px;
   margin: 0px ;
   text-align: center;
@@ -249,9 +249,9 @@ h1 {
   cursor: pointer;
   font-size: 20px;
 }
-.link-btn-round {
-  width: 90px;
-  height: 60px;
+.link-btn-angular {
+  width: 100px;
+  height: 42px;
   border-radius: 0px;
   margin: 0px ;
   text-align: center;
