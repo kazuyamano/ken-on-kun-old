@@ -170,7 +170,7 @@
       document.getElementById('input1').focus();
       //input1に英数字で7桁埋まったら・・・
       input1.addEventListener("keyup", function(){    // id=”input1"内でキーを押して離したら発火、{}内を作動
-        if (/([a-z]|[A-Z]|\d){7}/.test(this.value)) {
+        if (/([0-9a-zA-Z]){7}/.test(this.value)) {
           this.style.borderColor = "#66AB8D";
           this.value = this.value.toUpperCase();  // 小文字を大文字に変換
           document.getElementById("alert1").textContent = ""; //アラート文を非表示に
@@ -180,7 +180,7 @@
         }
       },false);
       input1.addEventListener("blur", function(){    // id=”input1"がフォーカスを失ったら、{}内を作動
-        if (/([a-z]|[A-Z]|\d){7}/.test(this.value)) {
+        if (/([0-9a-zA-Z]){7}/.test(this.value)) {
           this.value = this.value.toUpperCase();  // 小文字を大文字に変換
         } 
       },false);
@@ -207,7 +207,7 @@
         //input1編集中を対象に記述
         input1.addEventListener("keyup", function(){
           const temperature = Number(input2.value);
-          if (/([A-Z]|\d){7}/.test(input1.value) && (temperature>=35 && temperature<41)){
+          if (/([A-Z\d]){7}/.test(input1.value) && (temperature>=35 && temperature<41)){
             enterbtn.disabled = false;
             extrabtn.disabled = false;
             enterbtn.style.backgroundColor = "#66AB8D";
@@ -226,7 +226,7 @@
         //input2編集中でも同じ動きが起こるようコピペ
         input2.addEventListener("keyup", function(){
           const temperature = Number(input2.value);
-          if (/([A-Z]|\d){7}/.test(input1.value) && (temperature>=35 && temperature<41)) {
+          if (/([A-Z\d]){7}/.test(input1.value) && (temperature>=35 && temperature<41)) {
             enterbtn.disabled = false;
             extrabtn.disabled = false;
             enterbtn.style.backgroundColor = "#66AB8D";
