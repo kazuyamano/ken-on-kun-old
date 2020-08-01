@@ -146,7 +146,9 @@ h1 {
   height: 30px;
   margin: 0px auto;
   padding: 0px;
+  color: white;
   font-size: 19px;
+  border: none;
   border-radius: 15px;
   background-color: #d3d3d3;
   cursor: default;
@@ -361,7 +363,7 @@ h1 {
     width: 110px;
     font-size: 18px;
   }
-  #fb-btn,#nt-btn {
+  #fb-btn {
     margin-top: 10px;
   }
   .admin-container {
