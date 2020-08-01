@@ -239,7 +239,7 @@ h1 {
 }
 
 .link-btn-square {
-  width: 120px;
+  width: 130px;
   height: 50px;
   border-radius: 3px;
   margin: 0px ;
@@ -250,9 +250,9 @@ h1 {
   font-size: 20px;
 }
 .link-btn-round {
-  width: 54px;
-  height: 54px;
-  border-radius: 27px;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
   margin: 0px ;
   text-align: center;
   color: white;
