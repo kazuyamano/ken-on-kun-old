@@ -243,6 +243,7 @@ h1 {
   height: 40px;
   border-radius: 3px;
   margin: 0px ;
+  padding: 0px;
   text-align: center;
   color: white;
   border: none;
@@ -270,7 +271,7 @@ h1 {
 }
 #twitter-btn {
   background-color: #1DA1F2;
-  font-size: 18px;
+  font-size: 16px;
 }
 #twitter-btn2 {
   background-color: #1DA1F2;
@@ -278,7 +279,7 @@ h1 {
 }
 #facebook-btn {
   background-color: #3C5A99;
-  font-size: 18px;
+  font-size: 16px;
 }
 #github-btn {
   margin: 0px auto;
