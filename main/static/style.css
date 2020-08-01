@@ -129,7 +129,7 @@ h1 {
   outline-style: none;
 }
 
-button {
+.module-button {
   width: 300px;
   height: 60px;
   color: white;
@@ -208,75 +208,81 @@ button {
   padding: 0em 0.3em; /* 1emは文字の高さ1つ分。２つ指定の場合は上下値 左右値 */
 }
 
-
-.footer-container {
-  width: 360px;
+.line-container, .sns-container, .admin-container {
+  text-align: center;
+  width: 280px;
+}
+.line-container {
+  margin: 60px auto 10px auto;
+}
+.sns-container {
   margin: 0px auto;
+  display: flex;
+  justify-content: space-around;
+}
+.admin-container {
+  margin: 50px auto 0px auto;
+}
+.admin-container p {
+  margin: 10px auto;
+}
+.admin-link-box {
+  width: 220px;
+  margin: 0px auto 60px auto;
   display: flex;
   justify-content: space-around;
   text-align: center;
 }
-#line {
-  margin-top: 60px;
-  text-align: center;
-}
-#line p {
-  margin: 0px auto 20px auto;
-}
 .comment {
   margin: 0px auto 10px auto;
-  font-size: 10pt;
-  color: #202020;
+  font-size: 11pt;
 }
 
-#admin {
-  margin: 0px auto;
-  margin: 80px auto 10px auto;
-  text-align: center;
-}
-#admin p {
-  margin: 10px auto;
-}
-#tw-btn, #fb-btn, #gh-btn, #nt-btn {
-  width: 160px;
-  height: 50px;
+.link-btn-square {
+  width: 120px;
+  height: 42px;
   border-radius: 3px;
   margin: 0px ;
   text-align: center;
-}
-.fa-twitter, .fa-facebook-f {
   color: white;
+  border: none;
+  cursor: pointer;
   font-size: 20px;
-  font-weight: bolder;
 }
-.fa-github {
+.link-btn-round {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 0px ;
+  text-align: center;
   color: white;
-  font-size: 32px;
+  border: none;
+  cursor: pointer;
 }
-#fa-twitter2 {
-  color: white;
-  font-size: 24px;
+#line-btn {
+  width: 200px;
+  background-color: #00B900;
 }
-#tw-btn {
+#twitter-btn {
   background-color: #1DA1F2;
 }
-#fb-btn {
+#twitter-btn2 {
+  background-color: #1DA1F2;
+  font-size: 24px;
+}
+#facebook-btn {
   background-color: #3C5A99;
 }
-#gh-btn {
+#github-btn {
   margin: 0px auto;
+  color: white;
   background-color: #211F1F;
 }
-#nt-btn {
-  margin: 0px auto;
-  padding-top: 8px;
+#note-btn {
+  padding-top: 2px;
   background-color: #41C9B4;
 }
-#alldata-link {
-  width: 90%;
-  text-align: center;
-  margin: 0px auto 40px auto;
-}
+
 
 
 @media only screen and (max-width: 800px) {
